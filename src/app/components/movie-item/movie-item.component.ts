@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { PopularMoviesResponse } from 'src/app/models/movie-response.interface';
 
 @Component({
   selector: 'app-movie-item',
@@ -6,10 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movie-item.component.css']
 })
 export class MovieItemComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+   @Input() popularMovie: PopularMoviesResponse;
+   constructor() { }
+  ngOnInit(): void {  }
 }
