@@ -9,7 +9,7 @@ import { MovieService } from 'src/app/services/movie.service';
 })
 export class MovieListComponent implements OnInit {
 
-  popularMovies: PopularMoviesResponse [] =[];
+  popularMovies: PopularMoviesResponse [] = [];
 
   constructor(private movieService: MovieService ) { }
 
