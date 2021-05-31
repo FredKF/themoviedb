@@ -1,4 +1,4 @@
-export interface PopularMoviesResponse {
+export interface MoviesResponse {
     adult: boolean;
     backdrop_path: string;
     genre_ids: number[];
@@ -17,7 +17,7 @@ export interface PopularMoviesResponse {
 
 export interface RootObject {
     page: number;
-    results: PopularMoviesResponse[];
+    results: MoviesResponse[];
     total_pages: number;
     total_results: number;
 }

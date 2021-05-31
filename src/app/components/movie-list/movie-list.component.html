@@ -1,6 +1,23 @@
-<div class="grid-container">
+<h2>Popular Movies</h2>
+<div class="grid-container">    
     <app-movie-item *ngFor="let popularMovie of popularMovies"
-        [popularMovie] = "popularMovie"
+        [movie] = "popularMovie"
+    >
+    </app-movie-item>
+</div>
+
+<h2>Top-Rated</h2>
+<div class="grid-container">    
+    <app-movie-item *ngFor="let topRatedMovie of topRatedMovies"
+        [movie] = "topRatedMovie"
+    >
+    </app-movie-item>
+</div>
+
+<h2>Upcomming</h2>
+<div class="grid-container">    
+    <app-movie-item *ngFor="let upcommingMovie of upcommingMovies"
+        [movie] = "upcommingMovie"
     >
     </app-movie-item>
 </div>
