@@ -1,5 +1,22 @@
 .grid-container{
-    display: grid;    
+    /* display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-column-gap: 10px;
+    grid-column-gap: 10px; */
+    display: flex;
+}
+
+.movie-list-container{
+  display: flex;
+  overflow-x: scroll;
+}
+
+
+.container{
+  margin: 20px 50px;
+  overflow-x: hidden;
+}
+
+.container h2{
+  margin-bottom: 20px;
+  font-family: 'Courier New', Courier, monospace;
 }
