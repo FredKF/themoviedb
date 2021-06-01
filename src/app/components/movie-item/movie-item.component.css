@@ -1,5 +1,6 @@
-.movie{
+.movie img{
   margin: 6px;
+  border-radius: 6px;
 }
 
 .movie img:hover{
