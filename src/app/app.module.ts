@@ -7,6 +7,7 @@ import { MovieDetailComponent } from './components/movie-detail/movie-detail.com
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    HttpClientModule    
+    HttpClientModule,
+    AppRoutingModule    
   ],
   providers: [],
   bootstrap: [AppComponent]
