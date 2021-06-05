@@ -8,6 +8,9 @@ import { MovieListComponent } from './components/movie-list/movie-list.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { HeroComponent } from './components/shared/hero/hero.component';
+import { TvShowListComponent } from './components/tv-show-list/tv-show-list.component';
+import { TvShowItemComponent } from './components/tv-show-item/tv-show-item.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { AppRoutingModule } from './app-routing.module';
     HeaderComponent,
     MovieItemComponent,
     MovieDetailComponent,
-    MovieListComponent
+    MovieListComponent,
+    HeroComponent,
+    TvShowListComponent,
+    TvShowItemComponent    
   ],
   imports: [
     BrowserModule,

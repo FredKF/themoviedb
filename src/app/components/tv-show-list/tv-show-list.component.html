@@ -1,0 +1,9 @@
+<div class="container">
+    <h2>Latest TV Shows</h2>
+    <div class="movie-list-container">  
+      <div class="grid-container">
+        <app-tv-show-item *ngFor="let tvShow of tvShows" [tvShow]="tvShow">
+        </app-tv-show-item>
+      </div>
+    </div>   
+ </div>
