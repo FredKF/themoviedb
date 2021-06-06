@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { tvShowsResult } from 'src/app/models/tv-show-response.interface';
-import { TvShowsService } from 'src/app/services/tv-shows.service';
+import { TvShowsService } from 'src/app/modules/tv-show/services/tv-shows.service';
 
 @Component({
   selector: 'app-tv-show-list',
