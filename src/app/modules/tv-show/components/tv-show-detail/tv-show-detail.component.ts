@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { TvShowDetail } from 'src/app/models/tv-show-detail.interface';
 import { TvShowsService } from '../../services/tv-shows.service';
 
@@ -10,20 +11,25 @@ import { TvShowsService } from '../../services/tv-shows.service';
 })
 export class TvShowDetailComponent implements OnInit {
 
-  tvShowDetail: TvShowDetail;
+  // tvShowDetail: TvShowDetail;
+  tvShowDetail$: Observable<TvShowDetail>;
   constructor(private route: ActivatedRoute,
               private tvShowsService: TvShowsService) { }
 
-  ngOnInit(): void {
-    this.route.params.subscribe(params =>{
-      this.tvShowsService.getTvShowDetails(params.id).subscribe(
-        (res) => {
-          this.tvShowDetail = res;
-        },
-        (error) => {
-          console.error(error)
-        });
-    }); 
-  }
-
+    ngOnInit(): void {
+      this.route.params.subscribe(params =>{
+        this.tvShowDetail$ = this.tvShowsService.getTvShowDetails(params.id)          
+      }); 
+    }
+  // ngOnInit(): void {
+  //   this.route.params.subscribe(params =>{
+  //     this.tvShowsService.getTvShowDetails(params.id).subscribe(
+  //       (res) => {
+  //         this.tvShowDetail = res;
+  //       },
+  //       (error) => {
+  //         console.error(error)
+  //       });
+  //   }); 
+  // }
 }
