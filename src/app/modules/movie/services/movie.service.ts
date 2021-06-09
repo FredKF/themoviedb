@@ -12,7 +12,7 @@ export class MovieService {
   constructor(private httpClient : HttpClient) { }
 
   getPopularMovies(): Observable<RootObject>{
-    return this.httpClient.get<RootObject>('https://api.themoviedb.org/3/movie/popular?api_key=82818e8e08f0fd22cb882c56c7a579fc&language=en-US&page=1');
+    return this.httpClient.get<RootObject>('https://api.themoviedb.org/3/movie/popular?api_key=82818e8e08f0fd22cb882c56c7a579fc&language=en-US&page=100');
   }
 
   getTopRated(): Observable<RootObject>{

@@ -5,13 +5,12 @@ import { HeaderComponent } from './components/shared/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { HeroComponent } from './components/shared/hero/hero.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    HeroComponent    
+    HeaderComponent
+        
   ],
   imports: [
     BrowserModule,
