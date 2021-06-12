@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MoviesResponse, RootObject } from 'src/app/models/movie-response.interface';
+import { MoviesResponse } from 'src/app/models/movie-response.interface';
 import { MovieService } from 'src/app/modules/movie/services/movie.service';
 
 @Component({
@@ -11,33 +11,53 @@ export class MovieListComponent implements OnInit {
 
   popularMovies: MoviesResponse [] = [];
   topRatedMovies: MoviesResponse [] = [];
-  upcommingMovies: MoviesResponse [] = [];
+  upcomingMovies: MoviesResponse [] = [];
+  list: MoviesResponse[] = [];
+
+  movieTypes: string[] = ["popular", "top_rated", "upcoming"];
   
-  constructor(private movieService: MovieService ) { }
+  constructor(private movieService: MovieService ) { }  
 
-  ngOnInit(): void {
-    this.movieService.getPopularMovies().subscribe(
+  ngOnInit(): void {      
+    this.movieTypes.forEach(element => {
+      this.getMovieList(element)
+    });    
+  }
+
+  getMovieList(movieType: string){
+    this.movieService.getMovies(movieType).subscribe(
       (res) =>{
-        this.popularMovies = res.results;    
+        if(movieType == "popular"){
+          this.popularMovies = res.results;
+        }
+        if(movieType == "top_rated"){
+          this.topRatedMovies = res.results;
+        }
+        if(movieType == "upcoming"){
+          this.upcomingMovies = res.results;
+        }
+        
       },
       (error) => {
-        console.error(error)
-      });
-
-    this.movieService.getTopRated().subscribe(
-      (res) =>{
-        this.topRatedMovies = res.results;    
-      },
-      (error) => {
-        console.error(error)
-      });
-
-      this.movieService.getUpcommingMovies().subscribe(
-        (res) =>{
-          this.upcommingMovies = res.results;    
-        },
-        (error) => {
-          console.error(error)
-        });
+        console.error(error);
+     });
+     
+  }
+  
+  getLinkTitle(movieType: string): string{
+    switch(movieType) { 
+      case "popular": {         
+        return "Popular";         
+      } 
+      case "top_rated": {
+         return "Top Rated";
+      } 
+      case "upcoming": {    
+        return "Upcoming";
+     } 
+      default: {          
+         return "";
+      } 
+   } 
   }
 }
