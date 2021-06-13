@@ -5,7 +5,6 @@ import { HeaderComponent } from './components/shared/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -16,8 +15,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    AppRoutingModule,
-    MatPaginatorModule    
+    AppRoutingModule        
   ],
   providers: [],
   bootstrap: [AppComponent]

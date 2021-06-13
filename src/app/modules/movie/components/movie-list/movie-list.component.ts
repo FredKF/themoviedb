@@ -19,8 +19,8 @@ export class MovieListComponent implements OnInit {
   constructor(private movieService: MovieService ) { }  
 
   ngOnInit(): void {      
-    this.movieTypes.forEach(element => {
-      this.getMovieList(element)
+    this.movieTypes.forEach(movieType => {
+      this.getMovieList(movieType)
     });    
   }
 
@@ -35,8 +35,7 @@ export class MovieListComponent implements OnInit {
         }
         if(movieType == "upcoming"){
           this.upcomingMovies = res.results;
-        }
-        
+        }        
       },
       (error) => {
         console.error(error);

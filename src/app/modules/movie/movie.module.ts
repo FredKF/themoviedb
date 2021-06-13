@@ -7,6 +7,7 @@ import { MovieDetailComponent } from './components/movie-detail/movie-detail.com
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { HeroComponent } from 'src/app/components/shared/hero/hero.component';
 import { MoviesExtendedComponent } from './components/movies-extended/movies-extended.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -14,11 +15,12 @@ import { MoviesExtendedComponent } from './components/movies-extended/movies-ext
     MovieItemComponent,
     MovieDetailComponent,
     MovieListComponent,
-    MoviesExtendedComponent    
+    MoviesExtendedComponent       
   ],
   imports: [
     CommonModule,
-    MovieRoutingModule
+    MovieRoutingModule,
+    MatPaginatorModule
   ]
 })
 export class MovieModule { }
