@@ -7,7 +7,7 @@ import { MoviesExtendedComponent } from './components/movies-extended/movies-ext
 const routes: Routes = [
   {path:'', component: MovieListComponent},
   {path:':id', component: MovieDetailComponent},
-  {path:'movies-extended/:popularMovies', component: MoviesExtendedComponent}
+  {path:'movies-extended/:movieType', component: MoviesExtendedComponent}
 ];
 
 @NgModule({

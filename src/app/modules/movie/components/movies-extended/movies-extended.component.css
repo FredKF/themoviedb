@@ -5,3 +5,8 @@
     margin: auto;
     justify-content: space-around;
 }
+
+.paginator {
+    display: flex;
+    justify-content: center !important;
+}

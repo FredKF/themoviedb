@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MoviesResponse } from 'src/app/models/movie-response.interface';
+import { MovieRootObject, MoviesResponse } from 'src/app/models/movie-response.interface';
 import { MovieService } from 'src/app/modules/movie/services/movie.service';
 
 @Component({
@@ -9,9 +9,10 @@ import { MovieService } from 'src/app/modules/movie/services/movie.service';
 })
 export class MovieListComponent implements OnInit {
 
+  popularRoot: MovieRootObject;
   popularMovies: MoviesResponse [] = [];
   topRatedMovies: MoviesResponse [] = [];
-  upcomingMovies: MoviesResponse [] = [];
+  upcomingMovies: MoviesResponse [] = [];  
   list: MoviesResponse[] = [];
 
   movieTypes: string[] = ["popular", "top_rated", "upcoming"];

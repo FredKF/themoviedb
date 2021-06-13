@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { MoviesResponse } from 'src/app/models/movie-response.interface';
+import { PageEvent } from '@angular/material/paginator';
+import { ActivatedRoute } from '@angular/router';
+import { MovieRootObject, MoviesResponse } from 'src/app/models/movie-response.interface';
 import { MovieService } from '../../services/movie.service';
 
 @Component({
@@ -9,33 +10,48 @@ import { MovieService } from '../../services/movie.service';
   styleUrls: ['./movies-extended.component.css']
 })
 export class MoviesExtendedComponent implements OnInit {
-
+  pageEvent: PageEvent;
+  datasource: MoviesResponse[];
+  pageIndex:number;
+  pageSize:number;
+  length:number;
   moviesList: MoviesResponse [] = [];
-  moco: string;
+  moviesRoot: MovieRootObject;
+  movieType: string;
+  currentIndex:number;
+
   constructor(private route: ActivatedRoute,
               private movieService: MovieService) { }
 
-  // ngOnInit(): void {
-  //   this.route.params.subscribe(params =>{
-  //     this.moviesList = params.popularMovies;
-  //   });
-    
-  // }  
-
   ngOnInit() {
     this.route.params.subscribe(params => {      
-      this.moco = params.popularMovies;
-      // var result = JSON.parse(params['popularMovies']);
-      // this.moviesList = JSON.parse(params['popularMovies']);
+      this.movieType = params.movieType;      
     });
-    console.log(this.moco);
-    this.movieService.getMovies(this.moco).subscribe(
-      res => {
-        this.moviesList = res.results;
-      }
-    )    
-  }
+    this.movieService.getMovies(this.movieType).subscribe(
+      res => {             
+        this.datasource = res.results;        
+        this.pageSize= res.results.length;
+        this.length = res.total_results;
+      } 
+    )   
+    if(this.moviesList.length > 0) this.getServerData(null);
+ } 
 
-  // this.moviesList = JSON.parse(this.route.snapshot.paramMap.get('popularMovies'));
- 
+ getServerData(pageEvent?:PageEvent): PageEvent{    
+  this.currentIndex = pageEvent.pageIndex;
+  pageEvent.pageIndex +=1;
+
+  this.movieService.getMoviesPag(this.movieType, pageEvent.pageIndex.toString()).subscribe(
+    response =>{       
+       this.datasource = response.results;
+        this.pageIndex = this.currentIndex;
+        this.length = response.total_results;
+        this.pageSize= response.results.length;
+      },     
+    error =>{
+      console.log(error);
+    }
+  );    
+  return pageEvent;
+ }
 }
