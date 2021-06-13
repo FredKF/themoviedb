@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute } from '@angular/router';
 import { MovieRootObject, MoviesResponse } from 'src/app/models/movie-response.interface';
+import { SearchService } from 'src/app/services/search.service';
 import { MovieService } from '../../services/movie.service';
 
 @Component({
@@ -21,7 +22,8 @@ export class MoviesExtendedComponent implements OnInit {
   currentIndex:number;
 
   constructor(private route: ActivatedRoute,
-              private movieService: MovieService) { }
+              private movieService: MovieService,
+              private searchService: SearchService ) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {      
@@ -53,5 +55,14 @@ export class MoviesExtendedComponent implements OnInit {
     }
   );    
   return pageEvent;
+ }
+
+ filterList(){
+  this.searchService.getSearchResults("lord").subscribe(
+    response =>{
+      this.datasource = response.results;
+    }
+  );
+
  }
 }
