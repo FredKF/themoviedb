@@ -20,6 +20,7 @@ export class MoviesExtendedComponent implements OnInit {
   moviesRoot: MovieRootObject;
   movieType: string;
   currentIndex:number;
+  keyword: string;
 
   constructor(private route: ActivatedRoute,
               private movieService: MovieService,
@@ -44,11 +45,11 @@ export class MoviesExtendedComponent implements OnInit {
   pageEvent.pageIndex +=1;
 
   this.movieService.getMoviesPag(this.movieType, pageEvent.pageIndex.toString()).subscribe(
-    response =>{       
-       this.datasource = response.results;
+    res =>{       
+        this.datasource = res.results;
         this.pageIndex = this.currentIndex;
-        this.length = response.total_results;
-        this.pageSize= response.results.length;
+        this.length = res.total_results;
+        this.pageSize= res.results.length;
       },     
     error =>{
       console.log(error);
@@ -57,12 +58,17 @@ export class MoviesExtendedComponent implements OnInit {
   return pageEvent;
  }
 
- filterList(){
-  this.searchService.getSearchResults("lord").subscribe(
+ filterList(keyword: string){
+  this.searchService.getSearchResults(keyword).subscribe(
     response =>{
       this.datasource = response.results;
     }
   );
+}
 
- }
+  sortTopTen(){    
+    this.datasource.sort((movie, nextMovie) => movie.popularity < nextMovie.popularity ? 1 : -1);
+    var sortedList = this.datasource.slice(0, 10);
+    this.datasource = sortedList;    
+  } 
 }

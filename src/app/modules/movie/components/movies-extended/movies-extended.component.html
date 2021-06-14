@@ -1,9 +1,12 @@
+<input type="search" [(ngModel)]="keyword">
+<button (click)="filterList(keyword)">Search</button>
+
+<button (click)="sortTopTen()">Top Ten Popular</button>
+
 <div class="container">
     <app-movie-item *ngFor="let movie of datasource" [movie]="movie">
     </app-movie-item>    
 </div>
-
-<button (click)="filterList()">Search</button>
 
 <div class="paginator">
     <mat-paginator 
