@@ -12,19 +12,24 @@ import { MovieService } from '../../services/movie.service';
 })
 export class MoviesExtendedComponent implements OnInit {
   pageEvent: PageEvent;
+  searchPageEvent: PageEvent;
   datasource: MoviesResponse[];
   pageIndex:number;
+  searchPageIndex:number;
   pageSize:number;
   length:number;
   moviesList: MoviesResponse [] = [];
   moviesRoot: MovieRootObject;
   movieType: string;
-  currentIndex:number;
+  currentIndex:number;    
   keyword: string;
+  IsSearch: boolean = false;
+  searchQuery: string;
 
   constructor(private route: ActivatedRoute,
               private movieService: MovieService,
-              private searchService: SearchService ) { }
+              private searchService: SearchService
+               ) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {      
@@ -37,10 +42,13 @@ export class MoviesExtendedComponent implements OnInit {
         this.length = res.total_results;
       } 
     )   
-    if(this.moviesList.length > 0) this.getServerData(null);
+    if(this.moviesList.length > 0) this.getServerData(null,null);
  } 
 
- getServerData(pageEvent?:PageEvent): PageEvent{    
+ getServerData(pageEvent:PageEvent, keyword: string): PageEvent{    
+  if(this.IsSearch){
+    this.getFilteredData(keyword);
+  }
   this.currentIndex = pageEvent.pageIndex;
   pageEvent.pageIndex +=1;
 
@@ -54,16 +62,26 @@ export class MoviesExtendedComponent implements OnInit {
     error =>{
       console.log(error);
     }
-  );    
+  );      
   return pageEvent;
- }
+ } 
 
- filterList(keyword: string){
-  this.searchService.getSearchResults(keyword).subscribe(
+ getFilteredData(keyword: string){
+  this.searchPageIndex = 1;
+  this.IsSearch = true;
+  this.searchQuery = keyword;
+
+  this.searchService.getSearchResults(keyword,this.searchPageIndex.toString()).subscribe(
     response =>{
       this.datasource = response.results;
-    }
-  );
+      this.pageIndex = this.currentIndex;
+      this.length = response.total_results;
+      this.pageSize= response.results.length;        
+  },
+  error=>{
+    console.log(error);
+  }
+);
 }
 
   sortTopTen(){    

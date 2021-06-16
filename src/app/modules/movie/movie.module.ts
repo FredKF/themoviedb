@@ -9,6 +9,7 @@ import { HeroComponent } from 'src/app/components/shared/hero/hero.component';
 import { MoviesExtendedComponent } from './components/movies-extended/movies-extended.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
+import { SearchComponent } from 'src/app/components/shared/search/search.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     MovieItemComponent,
     MovieDetailComponent,
     MovieListComponent,
-    MoviesExtendedComponent       
+    MoviesExtendedComponent,
+    SearchComponent    
   ],
   imports: [
     CommonModule,

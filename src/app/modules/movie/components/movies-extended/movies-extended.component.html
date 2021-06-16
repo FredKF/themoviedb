@@ -1,5 +1,5 @@
-<input type="search" [(ngModel)]="keyword">
-<button (click)="filterList(keyword)">Search</button>
+<input #input type="search" [(ngModel)]="keyword">
+<button routerLink="/search/{{keyword}}">Search</button>
 
 <button (click)="sortTopTen()">Top Ten Popular</button>
 
@@ -9,10 +9,10 @@
 </div>
 
 <div class="paginator">
-    <mat-paginator 
+    <mat-paginator
         [length]="length"
         [pageIndex]="pageIndex"
-        [pageSize]="pageSize"
-        (page)="pageEvent = getServerData($event)">
+        [pageSize]="pageSize"        
+        (page)="pageEvent = getServerData($event, input.keyword)">
     </mat-paginator>
 </div>
