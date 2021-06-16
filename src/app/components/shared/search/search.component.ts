@@ -10,10 +10,11 @@ import { SearchService } from 'src/app/services/search.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-
+  hidden: boolean = true;
   keyword: string;
   searchPageIndex: number;
   datasource: MoviesResponse[];
+  auxDataSource: MoviesResponse[];
   pageEvent: PageEvent;
   pageIndex:number;
   pageSize:number;
@@ -29,47 +30,52 @@ export class SearchComponent implements OnInit {
       this.keyword = params.query;
       this.searchPageIndex = 1;
     });
-    this.searchService.getSearchResults(this.keyword,this.searchPageIndex.toString()).subscribe(
-      res => {
-        this.datasource = this.cleanDataSource(res.results);
-        this.pageSize= res.results.length;
-        this.length = res.total_results;
-      }
-    )
-  }
+    this.searchService.getSearchMovies(this.keyword,this.searchPageIndex.toString()).subscribe(
+          res => {
+            this.cleanDataSource(res.results);
+            this.auxDataSource = res.results;
+            if(res.results.length === 0){
+              this.hidden = false;
+            }
+            this.getAllSearchData(res.total_pages);
+          }
+        )
+     }
 
-
-  getFilteredData(pageEvent:PageEvent): PageEvent{
-    this.currentIndex = pageEvent.pageIndex;
-    pageEvent.pageIndex +=1;
-
-    this.searchService.getSearchResults(this.keyword, pageEvent.pageIndex.toString()).subscribe(
-      response =>{
-        this.datasource = this.cleanDataSource(response.results);
-        this.pageIndex = this.currentIndex;
-        this.length = response.total_results;
-        this.pageSize= response.results.length;
-    },
-    error=>{
-      console.log(error);
-    }
-  );
-  return pageEvent;
- }
+     getAllSearchData(totalPages: number): void{
+      for(let index=1; index < totalPages; index ++){
+        this.searchService.getSearchMovies(this.keyword,index.toString()).subscribe(
+          response =>{    
+            this.cleanDataSource(response.results);
+            this.cleanDataSource(this.auxDataSource);
+            this.datasource = this.auxDataSource.concat(response.results); 
+            this.pageIndex = this.currentIndex;
+            this.length = response.total_results;
+            this.pageSize= response.results.length;
+        },
+        error=>{
+          console.log(error);
+        }
+      );
+      }     
+   }
 
   cleanDataSource(results: MoviesResponse[]): MoviesResponse[]{
-    results.forEach(result => {
+    for(let result of results){
       if(this.elementContainsNull(result)){
-        results.splice(results.indexOf(result),1);
-        }
-    });
-
-    return results;
+        var filteredList = results.splice(results.indexOf(result),10);
+      }
+    }
+    return filteredList;
   }
 
-  elementContainsNull(result: MoviesResponse): boolean {
-    return Object.values(result).every(x => (x === null || x === '')) ? true : false;
-    // return result.backdrop_path === null ?  true : false
+  elementContainsNull(result: MoviesResponse): boolean {  
+    var nullValuesFound: number = 0; 
+    for(var key in result){
+      if(result[key] === null){
+        nullValuesFound +=1;
+      }      
+    } 
+    return nullValuesFound > 0;    
   }
-
 }

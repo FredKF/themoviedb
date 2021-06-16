@@ -1,1 +1,5 @@
 @import "../../../../app/modules/movie/components/movies-extended/movies-extended.component.css";
+
+.hidden{
+    visibility: hidden;
+}

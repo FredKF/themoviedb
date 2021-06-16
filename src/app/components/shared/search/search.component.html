@@ -5,11 +5,6 @@
     </app-movie-item>
 </div>
 
-<div class="paginator">
-  <mat-paginator
-      [length]="length"
-      [pageIndex]="pageIndex"
-      [pageSize]="pageSize"
-      (page)="pageEvent = getFilteredData($event)">
-  </mat-paginator>
+<div [class.hidden]="hidden">
+  <h1>NO RESULTS FOUND :(</h1>
 </div>

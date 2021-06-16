@@ -10,7 +10,7 @@ export class SearchService {
   searchResult: MovieRootObject;
   constructor(private httpClient: HttpClient) { }
 
-  getSearchResults(keyword: string, pageIndex: string): Observable<MovieRootObject>{    
-    return this.httpClient.get<MovieRootObject>(`https://api.themoviedb.org/3/search/multi?api_key=82818e8e08f0fd22cb882c56c7a579fc&language=en-US&query=${keyword}&page=${pageIndex}&include_adult=false`);
-  }
+  getSearchMovies(keyword: string, pageIndex: string): Observable<MovieRootObject>{    
+    return this.httpClient.get<MovieRootObject>(`https://api.themoviedb.org/3/search/movie?api_key=82818e8e08f0fd22cb882c56c7a579fc&language=en-US&query=${keyword}&page=${pageIndex}&include_adult=false`);
+  }  
 }
