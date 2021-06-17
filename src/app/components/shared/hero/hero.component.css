@@ -1,10 +1,6 @@
  
   .hero-main {
-    /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("photographer.jpg");
-    
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;*/    
+    background-image: url("../../../../assets/images/imgonline-com-ua-Color-filter-oF278LhCFEP0.jpg");
     display: flex;
     background-color: rgb(97, 97, 187);
     height: 50%;

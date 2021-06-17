@@ -26,7 +26,11 @@ export class MoviesExtendedComponent implements OnInit {
   searchQuery: string;
 
   constructor(private route: ActivatedRoute,
-              private movieService: MovieService) { }
+              private movieService: MovieService) {
+                this.route.paramMap.subscribe(params => {
+                  this.ngOnInit();
+              });
+             }
 
   ngOnInit() {
     this.route.params.subscribe(params => {

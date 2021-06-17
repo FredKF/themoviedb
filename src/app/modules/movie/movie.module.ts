@@ -19,7 +19,7 @@ import { MatCardModule } from '@angular/material/card';
     MovieDetailComponent,
     MovieListComponent,
     MoviesExtendedComponent,
-    SearchComponent
+    SearchComponent    
   ],
   imports: [
     CommonModule,

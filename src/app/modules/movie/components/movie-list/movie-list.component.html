@@ -3,7 +3,7 @@
   <a routerLink="/movies/movies-extended/{{movieType}}"><h2>{{getLinkTitle(movieType)}}</h2></a>
   <div class="movie-list-container">
     <div class="grid-container" *ngIf="movieType == 'popular'">
-      <app-movie-item  style="display:flex;" *ngFor="let movie of popularMovies" [movie]="movie">
+      <app-movie-item style="display:flex;" *ngFor="let movie of popularMovies" [movie]="movie">
       </app-movie-item>
     </div>
     <div class="grid-container" *ngIf="movieType == 'top_rated'">
