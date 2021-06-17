@@ -12,11 +12,3 @@
   opacity: 0.6;
   cursor: pointer;
 }
-
-.example-card {
-  max-width: 185px;
-}
-
-.example-header-image {
-  background-size: cover;
-}
