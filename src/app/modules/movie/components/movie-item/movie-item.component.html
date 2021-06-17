@@ -4,15 +4,15 @@
     <h5>{{movie.release_date}}</h5>
 </div> -->
 
-
-
-<mat-card class="movie" routerLink="/movies/{{movie.id}}">
-  <img mat-card-image src="http://image.tmdb.org/t/p/w185/{{movie.poster_path}}" [alt]="movie.original_title">
-  <mat-card-content>
-    <mat-card-title>{{movie.title}}</mat-card-title>
-    <mat-card-subtitle>{{movie.original_title}}</mat-card-subtitle>
-  </mat-card-content>
-</mat-card>
+<div class="main-container">
+  <mat-card class="movie" routerLink="/movies/{{movie.id}}">
+    <img mat-card-image src="http://image.tmdb.org/t/p/w185/{{movie.poster_path}}" [alt]="movie.original_title">
+    <mat-card-content>
+      <mat-card-title>{{movie.title}}</mat-card-title>
+      <mat-card-subtitle>{{movie.original_title}}</mat-card-subtitle>
+    </mat-card-content>
+  </mat-card>
+</div>
 
 
 
