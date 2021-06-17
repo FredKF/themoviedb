@@ -3,6 +3,7 @@ import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute } from '@angular/router';
 import { MoviesResponse } from 'src/app/models/movie-response.interface';
 import { SearchService } from 'src/app/services/search.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-search',
@@ -23,7 +24,8 @@ export class SearchComponent implements OnInit {
   currentIndex:number;
 
   constructor(private searchService: SearchService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private location: Location) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -45,10 +47,10 @@ export class SearchComponent implements OnInit {
      getAllSearchData(totalPages: number): void{
       for(let index=1; index < totalPages; index ++){
         this.searchService.getSearchMovies(this.keyword,index.toString()).subscribe(
-          response =>{    
+          response =>{
             this.cleanDataSource(response.results);
             this.cleanDataSource(this.auxDataSource);
-            this.datasource = this.auxDataSource.concat(response.results); 
+            this.datasource = this.auxDataSource.concat(response.results);
             this.pageIndex = this.currentIndex;
             this.length = response.total_results;
             this.pageSize= response.results.length;
@@ -57,7 +59,7 @@ export class SearchComponent implements OnInit {
           console.log(error);
         }
       );
-      }     
+      }
    }
 
   cleanDataSource(results: MoviesResponse[]): MoviesResponse[]{
@@ -69,13 +71,17 @@ export class SearchComponent implements OnInit {
     return filteredList;
   }
 
-  elementContainsNull(result: MoviesResponse): boolean {  
-    var nullValuesFound: number = 0; 
+  elementContainsNull(result: MoviesResponse): boolean {
+    var nullValuesFound: number = 0;
     for(var key in result){
       if(result[key] === null){
         nullValuesFound +=1;
-      }      
-    } 
-    return nullValuesFound > 0;    
+      }
+    }
+    return nullValuesFound > 0;
+  }
+
+  goBack(){
+    this.location.back()
   }
 }

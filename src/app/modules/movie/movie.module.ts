@@ -10,6 +10,7 @@ import { MoviesExtendedComponent } from './components/movies-extended/movies-ext
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from 'src/app/components/shared/search/search.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -18,12 +19,13 @@ import { SearchComponent } from 'src/app/components/shared/search/search.compone
     MovieDetailComponent,
     MovieListComponent,
     MoviesExtendedComponent,
-    SearchComponent    
+    SearchComponent
   ],
   imports: [
     CommonModule,
     MovieRoutingModule,
     MatPaginatorModule,
+    MatCardModule,
     FormsModule
   ]
 })

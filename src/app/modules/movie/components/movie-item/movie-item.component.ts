@@ -7,7 +7,7 @@ import { MoviesResponse } from 'src/app/models/movie-response.interface';
   styleUrls: ['./movie-item.component.css']
 })
 export class MovieItemComponent implements OnInit {
-  @Input() movie: MoviesResponse;  
+  @Input() movie: MoviesResponse;
   constructor() { }
   ngOnInit(): void {  }
 }

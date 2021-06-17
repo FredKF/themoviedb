@@ -1,9 +1,22 @@
 .movie img{
+  width: 185px;
+}
+
+.movie{
   margin: 6px;
+  overflow: hidden;
   border-radius: 6px;
 }
 
-.movie img:hover{
+.movie:hover{
   opacity: 0.6;
   cursor: pointer;
+}
+
+.example-card {
+  max-width: 185px;
+}
+
+.example-header-image {
+  background-size: cover;
 }

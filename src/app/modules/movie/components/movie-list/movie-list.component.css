@@ -1,13 +1,3 @@
-.grid-container{    
-    display: flex;
-}
-
-.movie-list-container{
-  display: flex;
-  overflow-x: scroll;
-}
-
-
 .container{
   margin: 20px 50px;
   overflow-x: hidden;
@@ -17,3 +7,14 @@
   margin-bottom: 20px;
   font-family: 'Courier New', Courier, monospace;
 }
+
+.grid-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.movie-list-container{
+  overflow-x: scroll;
+}
+
+

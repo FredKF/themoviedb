@@ -1,9 +1,9 @@
 .container{
     display: grid;
-    grid-template: repeat(5,1fr)/repeat(4,1fr);
+    grid-template-columns: repeat(5,185px);
     width: 80%;
     margin: auto;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .paginator {
