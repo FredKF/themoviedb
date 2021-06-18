@@ -1,118 +1,20 @@
-<!-- <mat-toolbar color="primary">
+<mat-toolbar color="primary">
+  <div class="toolbar-row-container">
     <mat-toolbar-row>
-      <span>Custom Toolbar</span>
+      <span class="homeLink" routerLink="movies">Home</span>
+    <button mat-button [matMenuTriggerFor]="menu">Movies</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/movies/movies-extended/popular" routerLinkActive="active">Popular</button>
+        <button mat-menu-item routerLink="/movies/movies-extended/top_rated" routerLinkActive="active">Top Rated</button>
+        <button mat-menu-item routerLink="/movies/movies-extended/upcoming" routerLinkActive="active">Upcoming</button>
+      </mat-menu>
+      <button mat-button [matMenuTriggerFor]="menu">TV Shows</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/movies/movies-extended/popular" routerLinkActive="active">Popular</button>
+        <button mat-menu-item routerLink="/movies/movies-extended/top_rated" routerLinkActive="active">Top Rated</button>
+        <button mat-menu-item routerLink="/movies/movies-extended/upcoming" routerLinkActive="active">Upcoming</button>
+      </mat-menu>
     </mat-toolbar-row>
-  
-    <mat-toolbar-row>
-      <span>Second Line</span>
-      <span class="example-spacer"></span>
-      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">verified_user</mat-icon>
-    </mat-toolbar-row>
-  
-    <mat-toolbar-row>
-      <span>Third Line</span>
-      <span class="example-spacer"></span>
-      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
-      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
-    </mat-toolbar-row>
-  </mat-toolbar>  -->
-  
-
-<nav>
-    <a routerLink="movies" routerLinkActive="active">Movies</a>
-    <a routerLink="movies/movies-extended/popular" routerLinkActive="active">Popular</a>
-    <a routerLink="movies/movies-extended/top_rated" routerLinkActive="active">Top Rated</a>
-    <a routerLink="/movies/movies-extended/upcoming" routerLinkActive="active">Upcoming</a>
-      <a routerLink="tvshows"  routerLinkActive="active">TV Shows</a>
-</nav>
-<nav>
-    
-<div class="right-container">
-    <span>Menu | </span>      
-    <div class="dropdown">
-        
-      <span>Movies</span>
-      <div class="dropdown-content">
-          <ul>
-              <li>
-                  <a routerLink="/movies/movies-extended/popular" routerLinkActive="active">Popular</a>
-              </li>
-              <li>
-                  <a routerLink="/movies/movies-extended/top_rated" routerLinkActive="active">Top Rated</a>
-              </li>
-              <li>
-                  <a routerLink="/movies/movies-extended/upcoming" routerLinkActive="active">Upcoming</a>
-              </li>
-          </ul>            
-      </div>
-    </div>
-        
   </div>
-  
-</nav>
+</mat-toolbar>
 
-
-
-<!-- 
-<mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <span>Custom Toolbar</span>
-    </mat-toolbar-row>
-  
-    <mat-toolbar-row>
-      <span>Second Line</span>
-      <span class="example-spacer"></span>
-      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">verified_user</mat-icon>
-    </mat-toolbar-row>
-  
-    <mat-toolbar-row>
-      <span>Third Line</span>
-      <span class="example-spacer"></span>
-      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
-      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
-    </mat-toolbar-row>
-  </mat-toolbar> -->
-
-
-<!-- 
-<mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <span>Custom Toolbar</span>
-    </mat-toolbar-row>
-  
-    <mat-toolbar-row>
-      <span>Second Line</span>
-      <span class="example-spacer"></span>
-      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">verified_user</mat-icon>
-    </mat-toolbar-row>
-  
-    <mat-toolbar-row>
-      <span>Third Line</span>
-      <span class="example-spacer"></span>
-      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
-      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
-    </mat-toolbar-row>
-  </mat-toolbar> -->
-  
-<!-- <mat-toolbar color="primary" class="toolbar">
-    <div class="right-container">
-      <span>Menu | </span>      
-      <div class="dropdown">
-        <span>Movies</span>
-        <div class="dropdown-content">
-            <ul>
-                <li>
-                    <a routerLink="/movies/movies-extended/popular" routerLinkActive="active">Popular</a>
-                </li>
-                <li>
-                    <a routerLink="/movies/movies-extended/top_rated" routerLinkActive="active">Top Rated</a>
-                </li>
-                <li>
-                    <a routerLink="/movies/movies-extended/upcoming" routerLinkActive="active">Upcoming</a>
-                </li>
-            </ul>            
-        </div>
-      </div>
-          
-    </div>
-</mat-toolbar> -->

@@ -9,30 +9,25 @@ a{
     cursor: pointer;
 }
 
-/* a:hover{
-    background-color: rgb(32, 189, 228);
-    transition: all 0.5s;
-} */
-
-/* a.active{
-    background-color: rgb(32, 189, 228);
-} */
+.homeLink:hover{
+  cursor: pointer;
+}
 
 .toolbar{
     display: flex;
     justify-content: space-between;
 }
- 
-  
+
+
   .search-icon{
     font-size: 30px;
   }
-  
+
   .search-icon:hover{
     cursor: pointer;
     background-color:grey;
   }
-  
+
   .right-container{
     margin-left: 20px;
   }
@@ -41,7 +36,7 @@ a{
     position: relative;
     display: inline-block;
   }
-  
+
   .dropdown-content {
     display: none;
     position: absolute;
@@ -51,8 +46,13 @@ a{
     padding: 12px 16px;
     z-index: 1;
   }
-  
+
   .dropdown:hover .dropdown-content {
     display: block;
   }
-  
+
+  .toolbar-row-container{
+    display: flex;
+    justify-content: space-around;
+  }
+
