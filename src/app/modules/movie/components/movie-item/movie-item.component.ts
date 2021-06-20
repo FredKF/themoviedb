@@ -8,6 +8,9 @@ import { MoviesResponse } from 'src/app/models/movie-response.interface';
 })
 export class MovieItemComponent implements OnInit {
   @Input() movie: MoviesResponse;
-  constructor() { }
-  ngOnInit(): void {  }
+  popularity: number;
+
+  constructor() { }  
+  ngOnInit(): void {     
+   }
 }

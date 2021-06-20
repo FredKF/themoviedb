@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { MovieRootObject } from '../../../models/movie-response.interface';
 import { MovieDetails } from '../../../models/movie-detail.interface';
+import { LatestRootObject } from 'src/app/models/movie-latest.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,11 @@ export class MovieService {
 
   getMovies(movieType: string): Observable<MovieRootObject>{
     return this.httpClient.get<MovieRootObject>(`https://api.themoviedb.org/3/movie/${movieType}?api_key=82818e8e08f0fd22cb882c56c7a579fc&language=en-US&page=1`);
-  } 
+  }
+
+  getLatest(): Observable<LatestRootObject>{    
+    return this.httpClient.get<LatestRootObject>('https://api.themoviedb.org/3/movie/latest?api_key=82818e8e08f0fd22cb882c56c7a579fc&language=en-US');
+  }
 
   getMoviesPag(movieType: string, pageNumber: string): Observable<MovieRootObject>{
     return this.httpClient.get<MovieRootObject>(`https://api.themoviedb.org/3/movie/${movieType}?api_key=82818e8e08f0fd22cb882c56c7a579fc&language=en-US&page=${pageNumber}`);

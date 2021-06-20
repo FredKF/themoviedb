@@ -1,11 +1,24 @@
-
-<input #input type="search" [(ngModel)]="keyword">
+<input #input type="search" [(ngModel)]="keyword" required>
 <button routerLink="/search/{{keyword}}">Search</button>
 
 <button (click)="sortTopTen()">Top Ten Popular</button>
 
-<div class="container">
-    <app-movie-item *ngFor="let movie of datasource" [movie]="movie">
+<div class="movie-navigation">
+    <span class="nav-link" routerLink="/movies/movies-extended/top_rated" mat-button>Top rated</span>
+    <span class="nav-link">|</span>
+    <span class="nav-link" routerLink="/movies/movies-extended/popular" mat-button>Popular</span>
+    <span class="nav-link">|</span>
+    <span class="nav-link" routerLink="/movies/movies-extended/now_playing" mat-button>Now playing</span>    
+    <span class="nav-link">|</span>
+    <span class="nav-link" routerLink="/movies/{{latestId}}" mat-button>Latest movie</span>  
+</div>
+
+<div class="main-title">
+    <h1>{{mainTitle}}</h1>
+</div>
+
+<div class="container">    
+    <app-movie-item style="display: flex;" *ngFor="let movie of datasource" [movie]="movie">
     </app-movie-item>    
 </div>
 

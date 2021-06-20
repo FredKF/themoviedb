@@ -1,20 +1,9 @@
-<mat-toolbar color="primary">
-  <div class="toolbar-row-container">
+<mat-toolbar color="primary">  
     <mat-toolbar-row>
+      <div class="toolbar-row-container">
       <span class="homeLink" routerLink="movies">Home</span>
-    <button mat-button [matMenuTriggerFor]="menu">Movies</button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="/movies/movies-extended/popular" routerLinkActive="active">Popular</button>
-        <button mat-menu-item routerLink="/movies/movies-extended/top_rated" routerLinkActive="active">Top Rated</button>
-        <button mat-menu-item routerLink="/movies/movies-extended/upcoming" routerLinkActive="active">Upcoming</button>
-      </mat-menu>
-      <button mat-button [matMenuTriggerFor]="menu">TV Shows</button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="/movies/movies-extended/popular" routerLinkActive="active">Popular</button>
-        <button mat-menu-item routerLink="/movies/movies-extended/top_rated" routerLinkActive="active">Top Rated</button>
-        <button mat-menu-item routerLink="/movies/movies-extended/upcoming" routerLinkActive="active">Upcoming</button>
-      </mat-menu>
+    <span class="homeLink" routerLink="/movies/movies-extended/upcoming" mat-button>Movies</span>                        
+    <span class="homeLink" routerLink="tvshows" mat-button>TV Shows</span>            
+      </div>
     </mat-toolbar-row>
-  </div>
 </mat-toolbar>
-

@@ -9,13 +9,21 @@ a{
     cursor: pointer;
 }
 
+.homeLink{
+  font-size: 18px;
+}
+
 .homeLink:hover{
-  cursor: pointer;
+  cursor: pointer;  
 }
 
 .toolbar{
     display: flex;
     justify-content: space-between;
+}
+
+.toolbar-row-container{
+  width: 500px;
 }
 
 

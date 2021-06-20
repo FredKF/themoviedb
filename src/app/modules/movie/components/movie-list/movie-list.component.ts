@@ -22,7 +22,7 @@ export class MovieListComponent implements OnInit {
   ngOnInit(): void {      
     this.movieTypes.forEach(movieType => {
       this.getMovieList(movieType)
-    });    
+    });
   }
 
   getMovieList(movieType: string){

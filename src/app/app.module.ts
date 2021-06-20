@@ -9,6 +9,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatBadgeModule} from '@angular/material/badge';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatPaginatorModule,
     MatCardModule,
     MatMenuModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
