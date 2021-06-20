@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { LatestRootObject } from 'src/app/models/movie-latest.interface';
 import { MovieRootObject, MoviesResponse } from 'src/app/models/movie-response.interface';
 import { MovieService } from '../../services/movie.service';
+import { Router } from '@angular/router';
+import { FormGroup, Validators,FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-movies-extended',
@@ -23,14 +25,18 @@ export class MoviesExtendedComponent implements OnInit {
   moviesRoot: MovieRootObject;
   movieType: string;
   currentIndex:number;
-  keyword: string;
+  keyword: string = '';
   IsSearch: boolean = false;
   searchQuery: string;
   latestId: number;
   mainTitle: string;
+  isvalidForm: boolean = false;
+  form: FormGroup;
 
   constructor(private route: ActivatedRoute,
-              private movieService: MovieService) {
+              private router: Router,
+              private movieService: MovieService
+              ) {
                 this.route.paramMap.subscribe(params => {                  
                   if(params){
                   this.ngOnInit();
@@ -38,7 +44,7 @@ export class MoviesExtendedComponent implements OnInit {
               });
              }
 
-  ngOnInit() {
+  ngOnInit() {   
     this.getLatest();
     this.route.params.subscribe(params => {
       this.movieType = params.movieType;
@@ -105,5 +111,11 @@ export class MoviesExtendedComponent implements OnInit {
          return "Movies";
       } 
    } 
+  }
+
+  navigateToSearchComponent(){    
+    if(this.keyword){
+      this.router.navigateByUrl(`/search/${this.keyword}`);
+    }
   }
 }

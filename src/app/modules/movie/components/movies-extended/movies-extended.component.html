@@ -1,5 +1,19 @@
-<input #input type="search" [(ngModel)]="keyword" required>
-<button routerLink="/search/{{keyword}}">Search</button>
+<form class="form-group" (ngSubmit)="navigateToSearchComponent()">
+    <input class="form-control" 
+    #input="ngModel"
+    id="input" 
+    type="search"
+    name="input" 
+    placeholder="Type kewyword..."
+    [(ngModel)]="keyword"
+    required/>    
+    <div class="searchErrors" *ngIf="input.errors && (input.dirty || input.touched)">
+        <div class="alert" *ngIf="input.errors.required"> 
+            Required search keyword
+        </div>        
+    </div>
+    <button type="submit" >Search</button>
+</form>
 
 <button (click)="sortTopTen()">Top Ten Popular</button>
 

@@ -10,6 +10,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatBadgeModule} from '@angular/material/badge';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatCardModule,
     MatMenuModule,
     MatToolbarModule,
-    MatBadgeModule
+    MatBadgeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
