@@ -26,7 +26,7 @@
     <span class="example-list-section">
       <ul *ngIf="genres" style="list-style: none;">
         <li *ngFor="let genre of genres.genres">
-          <mat-checkbox labelPosition="after" [value]="genre.name" [id]="genre.id" (change)="onCheckChange($event)">
+          <mat-checkbox color="primary" labelPosition="after" [value]="genre.name" [id]="genre.id" (change)="onCheckChange($event)">
               {{genre.name}}        
           </mat-checkbox>
         </li>
