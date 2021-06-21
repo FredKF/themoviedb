@@ -1,3 +1,7 @@
+
+<div class="main-container">
+<div class="side-container">
+<aside>
 <form class="form-group" (ngSubmit)="navigateToSearchComponent()">
     <input class="form-control"
     #input="ngModel"
@@ -12,18 +16,31 @@
             Required search keyword
         </div>
     </div>
-    <button type="submit" >Search</button>
+    <button type="submit">Search</button>
 </form>
 
-<button (click)="sortTopTen()">Top Ten Popular</button>
-<button (click)="filterByGender()">Search by gender</button>
-
 <section class="example-section">
-  <h4>Genres</h4>
-  <mat-checkbox color="primary" class="example-margin" value="horror" name="horror" id="horror" (change)="onCheckChange($event)" [(ngModel)]="checked">Horror</mat-checkbox>
-</section>
+    <span class="example-list-section">      
+        Genres      
+    </span>
+    <span class="example-list-section">
+      <ul *ngIf="genres" style="list-style: none;">
+        <li *ngFor="let genre of genres.genres">
+          <mat-checkbox labelPosition="after" [value]="genre.name" [id]="genre.id" (change)="onCheckChange($event)">
+              {{genre.name}}        
+          </mat-checkbox>
+        </li>
+      </ul>
+    </span>
+  </section>
 
-<div class="movie-navigation">
+  <button (click)="filterByGenres()">Filter gender</button>
+  <button (click)="sortTopTen()">Top Ten Popular</button>
+</aside>
+</div>
+
+<div class="content-container">
+  <div class="movie-navigation">
     <span class="nav-link" routerLink="/movies/movies-extended/top_rated" routerLinkActive="active" mat-button>Top rated</span>
     <span class="nav-link">|</span>
     <span class="nav-link" routerLink="/movies/movies-extended/popular" routerLinkActive="active" mat-button>Popular</span>
@@ -42,6 +59,8 @@
     </app-movie-item>
 </div>
 
+
+
 <div class="paginator">
     <mat-paginator
         [length]="length"
@@ -49,4 +68,6 @@
         [pageSize]="pageSize"
         (page)="pageEvent = getServerData($event, input.keyword)">
     </mat-paginator>
+</div>
+</div>
 </div>

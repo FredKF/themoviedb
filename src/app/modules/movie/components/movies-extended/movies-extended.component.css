@@ -6,6 +6,18 @@
     justify-content: center;
 }
 
+.main-container{
+    display: flex;
+    justify-content: center;   
+    margin: auto;
+}
+
+.side-container{
+    margin-right: 200px;
+    margin-top: 60px;
+}
+
+
 .paginator {
   display: flex;
   justify-content: center !important;

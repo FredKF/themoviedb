@@ -6,7 +6,7 @@ import { MovieRootObject, MoviesResponse } from 'src/app/models/movie-response.i
 import { MovieService } from '../../services/movie.service';
 import { Router } from '@angular/router';
 import { FormGroup, Validators,FormBuilder } from '@angular/forms';
-import { GenreRootObject } from 'src/app/models/movie-genres.interface';
+import { GenreRootObject, Genre } from 'src/app/models/movie-genres.interface';
 import { CheckboxComponent } from 'src/app/components/shared/checkbox/checkbox.component';
 
 @Component({
@@ -35,7 +35,11 @@ export class MoviesExtendedComponent implements OnInit {
   isvalidForm: boolean = false;
   form: FormGroup;
   genres: GenreRootObject;
+  gender: Genre[] = [];
+  genresNames: string[];
+  genresIds: string[] = [];
   checked: false;
+
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -49,6 +53,7 @@ export class MoviesExtendedComponent implements OnInit {
              }
 
   ngOnInit() {
+    this.populateGenders();
     this.getLatest();
     this.route.params.subscribe(params => {
       this.movieType = params.movieType;
@@ -123,31 +128,42 @@ export class MoviesExtendedComponent implements OnInit {
     }
   }
 
-  filterByGender() : void{
+  populateGenders() : void{
     this.movieService.getGenres().subscribe(
       res =>{
-        this.genres = res;
-        console.log(this.genres);
-        if(this.genres) this.getGenresDescription(this.genres);
-        if(this.genres) this.getGenresIds(this.genres);
-
+        this.genres = res;        
+        if(this.genres) this.genresNames = this.getGenresDescription(this.genres);        
       }
     )
   }
 
   getGenresDescription(genres: GenreRootObject): string[]{
-    let selectedGenres = genres.genres.map(({ name }) => name);
-    console.log(selectedGenres);
+    let selectedGenres = genres.genres.map(({ name }) => name);    
     return selectedGenres;
   }
 
   getGenresIds(genres: GenreRootObject): number[]{
     let selectedGenresIds = genres.genres.map(({ id }) => id);
-    console.log(selectedGenresIds);
     return selectedGenresIds;
   }
 
-  onCheckChange(event){
-    console.log(event.source.name);
+  onCheckChange(event){    
+    var and = '&'    
+    if(this.genresIds.length > 0){
+      this.genresIds.push(and + event.source.id.toString());
+    }else{
+      this.genresIds.push(event.source.id.toString());
+    }   
+  }
+
+  filterByGenres(){
+    this.movieService.getGenresById(this.genresIds).subscribe(
+      res =>{
+        this.datasource = res.results;        
+        this.length = res.total_results;
+        this.pageSize= res.results.length;               
+      }
+    )
+    this.genresIds = [];
   }
 }
