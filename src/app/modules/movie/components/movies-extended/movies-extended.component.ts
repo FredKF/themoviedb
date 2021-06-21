@@ -6,6 +6,8 @@ import { MovieRootObject, MoviesResponse } from 'src/app/models/movie-response.i
 import { MovieService } from '../../services/movie.service';
 import { Router } from '@angular/router';
 import { FormGroup, Validators,FormBuilder } from '@angular/forms';
+import { GenreRootObject } from 'src/app/models/movie-genres.interface';
+import { CheckboxComponent } from 'src/app/components/shared/checkbox/checkbox.component';
 
 @Component({
   selector: 'app-movies-extended',
@@ -32,24 +34,26 @@ export class MoviesExtendedComponent implements OnInit {
   mainTitle: string;
   isvalidForm: boolean = false;
   form: FormGroup;
+  genres: GenreRootObject;
+  checked: false;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
               private movieService: MovieService
               ) {
-                this.route.paramMap.subscribe(params => {                  
+                this.route.paramMap.subscribe(params => {
                   if(params){
                   this.ngOnInit();
                   }
               });
              }
 
-  ngOnInit() {   
+  ngOnInit() {
     this.getLatest();
     this.route.params.subscribe(params => {
       this.movieType = params.movieType;
     });
-    
+
     this.movieService.getMovies(this.movieType).subscribe(
       res => {
         this.datasource = res.results;
@@ -57,7 +61,7 @@ export class MoviesExtendedComponent implements OnInit {
         this.length = res.total_results;
         this.mainTitle = this. getMainTitle(this.movieType);
       }
-    )    
+    )
  }
 
  getServerData(pageEvent:PageEvent, keyword: string): PageEvent{
@@ -69,7 +73,7 @@ export class MoviesExtendedComponent implements OnInit {
         this.datasource = res.results;
         this.pageIndex = this.currentIndex;
         this.length = res.total_results;
-        this.pageSize= res.results.length;        
+        this.pageSize= res.results.length;
       },
     error =>{
       console.log(error);
@@ -78,11 +82,11 @@ export class MoviesExtendedComponent implements OnInit {
   return pageEvent;
  }
 
- getLatest(){  
+ getLatest(){
   this.movieService.getLatest().subscribe(
     res => {
       this.latest = res;
-      this.latestId = this.latest.id;           
+      this.latestId = this.latest.id;
     }
   )
  }
@@ -94,28 +98,56 @@ export class MoviesExtendedComponent implements OnInit {
   }
 
   getMainTitle(movieType: string): string{
-    switch(movieType) { 
-      case "popular": {         
-        return "Popular";         
-      } 
+    switch(movieType) {
+      case "popular": {
+        return "Popular";
+      }
       case "top_rated": {
          return "Top Rated";
-      } 
-      case "now_playing": {    
+      }
+      case "now_playing": {
         return "Now Playing";
-     } 
+     }
      case "upcoming":{
        return "Upcoming";
      }
-      default: {          
+      default: {
          return "Movies";
-      } 
-   } 
+      }
+   }
   }
 
-  navigateToSearchComponent(){    
+  navigateToSearchComponent(){
     if(this.keyword){
       this.router.navigateByUrl(`/search/${this.keyword}`);
     }
+  }
+
+  filterByGender() : void{
+    this.movieService.getGenres().subscribe(
+      res =>{
+        this.genres = res;
+        console.log(this.genres);
+        if(this.genres) this.getGenresDescription(this.genres);
+        if(this.genres) this.getGenresIds(this.genres);
+
+      }
+    )
+  }
+
+  getGenresDescription(genres: GenreRootObject): string[]{
+    let selectedGenres = genres.genres.map(({ name }) => name);
+    console.log(selectedGenres);
+    return selectedGenres;
+  }
+
+  getGenresIds(genres: GenreRootObject): number[]{
+    let selectedGenresIds = genres.genres.map(({ id }) => id);
+    console.log(selectedGenresIds);
+    return selectedGenresIds;
+  }
+
+  onCheckChange(event){
+    console.log(event.source.name);
   }
 }
