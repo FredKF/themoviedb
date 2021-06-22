@@ -14,7 +14,7 @@
 
 .side-container{
     margin-right: 100px;
-    background: rgb(219, 215, 215);
+    background: rgb(224, 223, 223);
 }
 
 .form-group{
@@ -78,4 +78,10 @@
 .nav-link.active{
   text-decoration: underline;
   font-size: 20px;
+}
+
+.filters{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }

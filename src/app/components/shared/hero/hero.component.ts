@@ -20,9 +20,7 @@ export class HeroComponent implements OnInit {
     "../../../../assets/images/starwars.jpg",
     "../../../../assets/images/terminator.jpg"];
 
-
       console.log(this.images[0]);
-
 
       this.actualImage = this.images[0];
       setInterval(() => {
@@ -33,5 +31,4 @@ export class HeroComponent implements OnInit {
         this.actualImage = this.images[this.changeBackgroundCounter];
       }, 5000);
     }
-
   }

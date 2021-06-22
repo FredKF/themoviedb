@@ -11,12 +11,14 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatBadgeModule} from '@angular/material/badge';
 import { FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { FooterComponent } from './components/shared/footer/footer.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
