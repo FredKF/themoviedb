@@ -1,3 +1,7 @@
+.main-container{
+  padding-bottom: 400px;
+}
+
 .container{
   width: 70%;
   margin: auto;
@@ -25,8 +29,8 @@
 
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
-
+  width: 5px;
+  height: 10px;
 }
 
 /* Track */

@@ -1,5 +1,9 @@
-<div class="movie" *ngIf="movieDetails">
+<div class="movie-detail" *ngIf="movieDetails">
     <img src="http://image.tmdb.org/t/p/w185/{{movieDetails.poster_path}}" [alt]="movieDetails.original_title">
-    <h3>{{movieDetails.title}}</h3>
-    <p>{{movieDetails.overview}}</p>    
+  <div class="content">
+    <div class="information">
+      <h3>{{movieDetails.title}}</h3>
+      <p>{{movieDetails.overview}}</p>
+    </div>
+  </div>
 </div>

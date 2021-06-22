@@ -1,4 +1,5 @@
 <app-hero></app-hero>
+<div class="main-container">
 <div class="container" *ngFor="let movieType of movieTypes">
   <span class="movie-types-text" routerLink="/movies/movies-extended/{{movieType}}"><h2>{{getLinkTitle(movieType)}}</h2></span>
   <div class="movie-list-container">
@@ -15,4 +16,5 @@
       </app-movie-item>
     </div>
   </div>
+</div>
 </div>

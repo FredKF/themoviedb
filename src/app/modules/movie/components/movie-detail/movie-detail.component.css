@@ -1,0 +1,20 @@
+.movie-detail{
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+
+}
+
+.content{
+  display: flex;
+  align-items: center;
+  margin: auto;
+
+}
+
+.information{
+
+}
+
