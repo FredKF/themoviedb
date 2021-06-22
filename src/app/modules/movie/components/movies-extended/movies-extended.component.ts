@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute } from '@angular/router';
 import { LatestRootObject } from 'src/app/models/movie-latest.interface';
-import { MovieRootObject, MoviesResponse } from 'src/app/models/movie-response.interface';
+import { MoviesResponse } from 'src/app/models/movie-response.interface';
 import { MovieService } from '../../services/movie.service';
 import { Router } from '@angular/router';
-import { FormGroup, Validators,FormBuilder } from '@angular/forms';
-import { GenreRootObject, Genre } from 'src/app/models/movie-genres.interface';
-import { CheckboxComponent } from 'src/app/components/shared/checkbox/checkbox.component';
+import { FormGroup} from '@angular/forms';
+import { GenreRootObject } from 'src/app/models/movie-genres.interface';
+import { ViewChildren } from '@angular/core';
+import { QueryList } from '@angular/core';
+import { ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-movies-extended',
@@ -15,31 +17,22 @@ import { CheckboxComponent } from 'src/app/components/shared/checkbox/checkbox.c
   styleUrls: ['./movies-extended.component.css']
 })
 export class MoviesExtendedComponent implements OnInit {
+  @ViewChildren("checkboxes") checkboxes: QueryList<ElementRef>;
   pageEvent: PageEvent;
-  searchPageEvent: PageEvent;
   datasource: MoviesResponse[];
   latest: LatestRootObject;
-  pageIndex:number;
-  searchPageIndex:number;
+  pageIndex: number;
   pageSize:number;
-  length:number;
-  moviesList: MoviesResponse [] = [];
-  moviesRoot: MovieRootObject;
+  length: number;
   movieType: string;
-  currentIndex:number;
+  currentIndex: number;
   keyword: string = '';
-  IsSearch: boolean = false;
-  searchQuery: string;
   latestId: number;
   mainTitle: string;
-  isvalidForm: boolean = false;
   form: FormGroup;
-  genres: GenreRootObject;
-  gender: Genre[] = [];
+  genresRoot: GenreRootObject;
   genresNames: string[];
   genresIds: string[] = [];
-  checked: false;
-
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -131,39 +124,39 @@ export class MoviesExtendedComponent implements OnInit {
   populateGenders() : void{
     this.movieService.getGenres().subscribe(
       res =>{
-        this.genres = res;        
-        if(this.genres) this.genresNames = this.getGenresDescription(this.genres);        
+        this.genresRoot = res;
+        if(this.genresRoot) this.genresNames = this.getGenresDescription(this.genresRoot);
       }
     )
   }
 
   getGenresDescription(genres: GenreRootObject): string[]{
-    let selectedGenres = genres.genres.map(({ name }) => name);    
+    let selectedGenres = genres.genres.map(({ name }) => name);
     return selectedGenres;
   }
 
-  getGenresIds(genres: GenreRootObject): number[]{
-    let selectedGenresIds = genres.genres.map(({ id }) => id);
-    return selectedGenresIds;
-  }
-
-  onCheckChange(event){    
-    var and = '&'    
+  onCheckChange(event){
     if(this.genresIds.length > 0){
-      this.genresIds.push(and + event.source.id.toString());
+      this.genresIds.push('&' + event.target.id.toString());
     }else{
-      this.genresIds.push(event.source.id.toString());
-    }   
+      this.genresIds.push(event.target.id.toString());
+    }
   }
 
   filterByGenres(){
     this.movieService.getGenresById(this.genresIds).subscribe(
       res =>{
-        this.datasource = res.results;        
+        this.datasource = res.results;
         this.length = res.total_results;
-        this.pageSize= res.results.length;               
+        this.pageSize= res.results.length;
       }
     )
     this.genresIds = [];
+  }
+
+  uncheckAll() {
+    this.checkboxes.forEach((element) => {
+      element.nativeElement.checked  = false;
+    });
   }
 }

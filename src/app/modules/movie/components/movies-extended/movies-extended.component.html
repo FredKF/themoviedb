@@ -1,72 +1,69 @@
-
 <div class="main-container">
-<div class="side-container">
-<aside>
-<form class="form-group" (ngSubmit)="navigateToSearchComponent()">
-    <input class="form-control"
-    #input="ngModel"
-    id="input"
-    type="search"
-    name="input"
-    placeholder="Type kewyword..."
-    [(ngModel)]="keyword"
-    required/>
-    <div class="searchErrors" *ngIf="input.errors && (input.dirty || input.touched)">
-        <div class="alert" *ngIf="input.errors.required">
+  <div class="side-container">
+    <aside>
+      <form class="form-group" (ngSubmit)="navigateToSearchComponent()">
+        <input class="form-control" #input="ngModel" id="input" type="search" name="input"
+          placeholder="Type kewyword..." [(ngModel)]="keyword" required />
+        <div class="searchErrors" *ngIf="input.errors && (input.dirty || input.touched)">
+          <div class="alert" *ngIf="input.errors.required">
             Required search keyword
+          </div>
         </div>
+        <button type="submit">Search</button>
+      </form>
+
+      <section class="">
+        <span class="">
+          <span>Genders</span>
+        </span>
+        <span class="">
+          <ul *ngIf="genresRoot" style="list-style: none;">
+            <li *ngFor="let genre of genresRoot.genres">
+              <input type="checkbox" #checkboxes color="primary" labelPosition="after" [value]="genre.name" [id]="genre.id"
+                (change)="onCheckChange($event)">
+                {{genre.name}}
+            </li>
+          </ul>
+        </span>
+      </section>
+
+      <span>Filters</span>
+
+      <button (click)="filterByGenres()">Gender</button>
+      <br>
+      <button (click)="sortTopTen()">Top Ten Popular</button>
+      <br>
+      <button (click)="uncheckAll()">Clear filters</button>
+    </aside>
+  </div>
+
+  <div class="content-container">
+    <div class="movie-navigation">
+      <span class="nav-link" routerLink="/movies/movies-extended/top_rated" routerLinkActive="active" mat-button>Top
+        rated</span>
+      <span class="nav-link">|</span>
+      <span class="nav-link" routerLink="/movies/movies-extended/popular" routerLinkActive="active"
+        mat-button>Popular</span>
+      <span class="nav-link">|</span>
+      <span class="nav-link" routerLink="/movies/movies-extended/now_playing" routerLinkActive="active" mat-button>Now
+        playing</span>
+      <span class="nav-link">|</span>
+      <span class="nav-link" routerLink="/movies/{{latestId}}" routerLinkActive="active" mat-button>Latest movie</span>
     </div>
-    <button type="submit">Search</button>
-</form>
 
-<section class="example-section">
-    <span class="example-list-section">      
-        Genres      
-    </span>
-    <span class="example-list-section">
-      <ul *ngIf="genres" style="list-style: none;">
-        <li *ngFor="let genre of genres.genres">
-          <mat-checkbox color="primary" labelPosition="after" [value]="genre.name" [id]="genre.id" (change)="onCheckChange($event)">
-              {{genre.name}}        
-          </mat-checkbox>
-        </li>
-      </ul>
-    </span>
-  </section>
+    <div class="main-title">
+      <h1>{{mainTitle}}</h1>
+    </div>
 
-  <button (click)="filterByGenres()">Filter gender</button>
-  <br>
-  <button (click)="sortTopTen()">Top Ten Popular</button>
-</aside>
-</div>
+    <div class="container">
+      <app-movie-item style="display: flex;" *ngFor="let movie of datasource" [movie]="movie">
+      </app-movie-item>
+    </div>
 
-<div class="content-container">
-  <div class="movie-navigation">
-    <span class="nav-link" routerLink="/movies/movies-extended/top_rated" routerLinkActive="active" mat-button>Top rated</span>
-    <span class="nav-link">|</span>
-    <span class="nav-link" routerLink="/movies/movies-extended/popular" routerLinkActive="active" mat-button>Popular</span>
-    <span class="nav-link">|</span>
-    <span class="nav-link" routerLink="/movies/movies-extended/now_playing" routerLinkActive="active" mat-button>Now playing</span>
-    <span class="nav-link">|</span>
-    <span class="nav-link" routerLink="/movies/{{latestId}}" routerLinkActive="active" mat-button>Latest movie</span>
-</div>
-
-<div class="main-title">
-    <h1>{{mainTitle}}</h1>
-</div>
-
-<div class="container">
-    <app-movie-item style="display: flex;" *ngFor="let movie of datasource" [movie]="movie">
-    </app-movie-item>
-</div>
-
-<div class="paginator">
-    <mat-paginator
-        [length]="length"
-        [pageIndex]="pageIndex"
-        [pageSize]="pageSize"
+    <div class="paginator">
+      <mat-paginator [length]="length" [pageIndex]="pageIndex" [pageSize]="pageSize"
         (page)="pageEvent = getServerData($event, input.keyword)">
-    </mat-paginator>
-</div>
-</div>
+      </mat-paginator>
+    </div>
+  </div>
 </div>
