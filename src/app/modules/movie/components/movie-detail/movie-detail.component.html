@@ -1,9 +1,26 @@
 <div class="movie-detail" *ngIf="movieDetails">
+  <div class="img-container">
     <img src="http://image.tmdb.org/t/p/w185/{{movieDetails.poster_path}}" [alt]="movieDetails.original_title">
-  <div class="content">
-    <div class="information">
-      <h3>{{movieDetails.title}}</h3>
-      <p>{{movieDetails.overview}}</p>
-    </div>
   </div>
+  <section class="content">
+    <div class="">
+      <h1>{{movieDetails.title}}</h1>
+      <h2>{{movieDetails.original_title}}</h2>
+      <span>Overview</span>
+      <p>{{movieDetails.overview}}</p>      
+      <span>Release date:</span>
+        <p>{{movieDetails.release_date | date:'mediumDate'}}</p>
+      <span>{{movieDetails.runtime}}'</span>
+      <br/>
+      <div class="genres">
+        <span>Genres</span>
+        <ul class="genres-list">
+          <li class="genre-name" *ngFor="let genre of movieDetails.genres">
+            {{genre.name}}
+          </li>
+      </ul>
+      </div>
+      <span>{{movieDetails.vote_count}} Votes</span>
+    </div>
+  </section>  
 </div>

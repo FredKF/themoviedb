@@ -1,20 +1,33 @@
 .movie-detail{
   margin: auto;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-around;
   width: 70%;
-
+  margin-top: 150px;
+  border-radius: 5px;
+  box-shadow: 5px 10px#888888;
 }
-
+span{
+  font-weight: bold;
+}
 .content{
-  display: flex;
-  align-items: center;
-  margin: auto;
-
+  width: 60%;
+  line-height: 30px;
+  
 }
 
-.information{
+.movie-detail img{
+  width: 300px !important;  
+  border-radius: 5px;
+}
 
+.genres-list{
+  list-style: none;
+}
+
+.gallery{
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
 }
 

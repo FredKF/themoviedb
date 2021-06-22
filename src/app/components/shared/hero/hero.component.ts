@@ -18,9 +18,7 @@ export class HeroComponent implements OnInit {
     "../../../../assets/images/kong.jpg",
     "../../../../assets/images/scarface.jpg",
     "../../../../assets/images/starwars.jpg",
-    "../../../../assets/images/terminator.jpg"];
-
-      console.log(this.images[0]);
+    "../../../../assets/images/terminator.jpg"];      
 
       this.actualImage = this.images[0];
       setInterval(() => {

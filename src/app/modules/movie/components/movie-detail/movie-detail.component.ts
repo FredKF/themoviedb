@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieDetails } from 'src/app/models/movie-detail.interface';
+import { GenreRootObject } from 'src/app/models/movie-genres.interface';
 import { MovieService } from 'src/app/modules/movie/services/movie.service';
 
 @Component({
@@ -11,6 +12,9 @@ import { MovieService } from 'src/app/modules/movie/services/movie.service';
 export class MovieDetailComponent implements OnInit {
 
   movieDetails: MovieDetails;
+  genresRoot: GenreRootObject;
+  genresNames: string[] = [];
+
   constructor(private route: ActivatedRoute,
               private movieService: MovieService) { }
 
@@ -23,6 +27,6 @@ export class MovieDetailComponent implements OnInit {
         (error) => {
           console.error(error)
         });
-    }); 
+    });
   }
 }
