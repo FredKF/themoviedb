@@ -1,29 +1,32 @@
- 
+
   .hero-main {
-    background-image: url("../../../../assets/images/star-wars-the-rise-of-skywalker-banner-min.jpg");
+    width: 100%;
+  }
+
+  .sub-container{
+    transition: 2s;
+    margin: auto;
+    width: 70%;
     display: flex;
-    background-color: rgb(97, 97, 187);
-    height: 50%;
     min-height: 300px;
     height: calc(100vh / 2.5);
-    max-height: 360px;    
-    color: #fff;    
+    max-height: 576px;
+    color: #fff;
     flex-wrap: wrap;
     align-items: flex-start;
     align-content: flex-start;
-    width: 100%;
     box-sizing: border-box;
-    background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
+    background-size: 100% 100%;
   }
-  
+
   .hero-text {
     margin-top: 120px;
     margin-left: 60px;
     color: white;
   }
-  
+
   .hero-text button {
     border: none;
     outline: 0;
@@ -34,7 +37,7 @@
     text-align: center;
     cursor: pointer;
   }
-  
+
   .hero-text button:hover {
     background-color: #555;
     color: white;

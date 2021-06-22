@@ -11,56 +11,50 @@ a{
 
 .homeLink{
   font-size: 18px;
+  margin-left: 30px;
 }
 
 .homeLink:hover{
-  cursor: pointer;  
-}
+  cursor: pointer;
 
-.toolbar{
-    display: flex;
-    justify-content: space-between;
 }
 
 .toolbar-row-container{
-  width: 500px;
+  width: 70%;
+  margin: auto;
+  display: flex;
+  justify-content: flex-start;
 }
 
 
-  .search-icon{
-    font-size: 30px;
-  }
+.search-icon{
+  font-size: 30px;
+}
 
-  .search-icon:hover{
-    cursor: pointer;
-    background-color:grey;
-  }
+.search-icon:hover{
+  cursor: pointer;
+  background-color:grey;
+}
 
-  .right-container{
-    margin-left: 20px;
-  }
+.right-container{
+  margin-left: 20px;
+}
 
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
 
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
-    z-index: 1;
-  }
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
 
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-
-  .toolbar-row-container{
-    display: flex;
-    justify-content: space-around;
-  }
-
+.dropdown:hover .dropdown-content {
+  display: block;
+}
