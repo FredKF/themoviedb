@@ -2,20 +2,21 @@
   <div class="side-container">
     <aside>
       <form class="form-group" (ngSubmit)="navigateToSearchComponent()">
-        <input class="form-control" #input="ngModel" id="input" type="search" name="input"
+        <input class="search-input" #input="ngModel" id="input" type="search" name="input"
           placeholder="Type kewyword..." [(ngModel)]="keyword" required />
-        <div class="searchErrors" *ngIf="input.errors && (input.dirty || input.touched)">
+        <button class="search-button" mat-button type="submit">Search <mat-icon>search</mat-icon></button>
+        <div class="search-errors" *ngIf="input.errors && (input.dirty || input.touched)">
           <div class="alert" *ngIf="input.errors.required">
             Required search keyword
           </div>
         </div>
-        <button type="submit">Search</button>
       </form>
 
       <section class="">
-        <span class="">
-          <span>Genders</span>
-        </span>
+          <div class="action-buttons">
+            <button mat-button class="search-button"  (click)="uncheckAll()">Clear <mat-icon>clear</mat-icon></button>
+            <button mat-button class="search-button" (click)="filterByGenres()">Apply <mat-icon>done</mat-icon></button>
+        </div>
         <span class="">
           <ul *ngIf="genresRoot" style="list-style: none;">
             <li *ngFor="let genre of genresRoot.genres">
@@ -27,13 +28,9 @@
         </span>
       </section>
 
-      <span>Filters</span>
-
-      <button (click)="filterByGenres()">Gender</button>
-      <br>
-      <button (click)="sortTopTen()">Top Ten Popular</button>
-      <br>
-      <button (click)="uncheckAll()">Clear filters</button>
+    <div class="filters">
+      <button mat-button class="search-button" (click)="sortTopTen()">Top Ten Popular</button>
+    </div>
     </aside>
   </div>
 

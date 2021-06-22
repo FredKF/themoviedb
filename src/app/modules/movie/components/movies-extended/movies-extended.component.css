@@ -8,14 +8,40 @@
 
 .main-container{
     display: flex;
-    justify-content: center;   
+    justify-content: center;
     margin: auto;
 }
 
 .side-container{
     margin-right: 100px;
-    margin-top: 60px;
     background: rgb(219, 215, 215);
+}
+
+.form-group{
+  margin-top: 60px;
+  padding: 5px;
+  margin-bottom: 15px;
+}
+
+.search-errors{
+  color: red;
+}
+
+.search-button{
+  color: rgb(78, 77, 77);
+}
+
+.action-buttons{
+  display: flex;
+  justify-content: space-around;
+}
+
+.search-input{
+  padding: 12px 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 
