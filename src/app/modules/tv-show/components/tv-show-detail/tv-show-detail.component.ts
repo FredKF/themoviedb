@@ -10,8 +10,6 @@ import { TvShowsService } from '../../services/tv-shows.service';
   styleUrls: ['./tv-show-detail.component.css']
 })
 export class TvShowDetailComponent implements OnInit {
-
-  // tvShowDetail: TvShowDetail;
   tvShowDetail$: Observable<TvShowDetail>;
   constructor(private route: ActivatedRoute,
               private tvShowsService: TvShowsService) { }
@@ -21,15 +19,4 @@ export class TvShowDetailComponent implements OnInit {
         this.tvShowDetail$ = this.tvShowsService.getTvShowDetails(params.id)          
       }); 
     }
-  // ngOnInit(): void {
-  //   this.route.params.subscribe(params =>{
-  //     this.tvShowsService.getTvShowDetails(params.id).subscribe(
-  //       (res) => {
-  //         this.tvShowDetail = res;
-  //       },
-  //       (error) => {
-  //         console.error(error)
-  //       });
-  //   }); 
-  // }
-}
+ }

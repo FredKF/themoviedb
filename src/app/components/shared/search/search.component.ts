@@ -22,6 +22,7 @@ export class SearchComponent implements OnInit {
   movieType: string;
   currentIndex:number;
   searchType: string;
+  isMovieSearch: boolean = false;
 
   constructor(private searchService: SearchService,
               private route: ActivatedRoute,
@@ -33,6 +34,10 @@ export class SearchComponent implements OnInit {
       this.searchType = params.searchType;
       this.searchPageIndex = 1;
     });
+
+    if(this.searchType ==='movies'){
+      this.isMovieSearch = true;
+    }
 
       this.searchService.getSearchResults(this.keyword,this.searchPageIndex.toString(), this.searchType).subscribe(
         res => {

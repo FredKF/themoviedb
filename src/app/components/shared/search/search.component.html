@@ -4,13 +4,12 @@
   <button class="go-back-button" (click)="goBack()"><- Go Back </button>
 </div>
 
-<div *ngIf="searchType === 'movies'" class="container">
+<div class="container">
     <app-movie-item style="display: flex;" *ngFor="let movie of datasource" [movie]="movie">
     </app-movie-item>    
-</div>  
+</div>
 
-
-<div *ngIf="searchType === 'tvShows'" class="container">
+<div class="container">
   <app-tv-show-item style="display: flex;" *ngFor="let tvShow of datasource" [tvShow]="tvShow">
   </app-tv-show-item>
 </div>
