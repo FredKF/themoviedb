@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { tvShowsResult } from 'src/app/models/tv-show-response.interface';
+import { TvShowsResult } from 'src/app/models/tv-show-response.interface';
 
 @Component({
   selector: 'app-tv-show-item',
@@ -7,7 +7,7 @@ import { tvShowsResult } from 'src/app/models/tv-show-response.interface';
   styleUrls: ['./tv-show-item.component.css']
 })
 export class TvShowItemComponent implements OnInit {
-  @Input() tvShow: tvShowsResult;
+  @Input() tvShow: TvShowsResult;
   constructor() { }
 
   ngOnInit(): void {

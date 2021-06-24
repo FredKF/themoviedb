@@ -5,7 +5,8 @@ import { TvShowListComponent } from './components/tv-show-list/tv-show-list.comp
 
 const routes: Routes = [
   {path:'', component: TvShowListComponent},  
-  {path:':id', component: TvShowDetailComponent}
+  {path:':id', component: TvShowDetailComponent},
+  {path:'tv-show-list/:tvShowType', component: TvShowListComponent }
 ];
 
 @NgModule({

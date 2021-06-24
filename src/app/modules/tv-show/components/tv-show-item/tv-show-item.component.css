@@ -1,9 +1,1 @@
-.movie img{
-    margin: 6px;
-    border-radius: 6px;
-  }
-  
-  .movie img:hover{
-    opacity: 0.6;
-    cursor: pointer;
-  }  
+@import "../../../movie/components/movie-item/movie-item.component.css";

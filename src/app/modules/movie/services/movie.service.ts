@@ -32,6 +32,7 @@ export class MovieService {
   getGenres(): Observable<GenreRootObject>{
     return this.httpClient.get<GenreRootObject>("https://api.themoviedb.org/3/genre/movie/list?api_key=82818e8e08f0fd22cb882c56c7a579fc&language=en-US");
   }
+  
   getGenresById(id:string[]): Observable<MovieRootObject>{
     return this.httpClient.get<MovieRootObject>(`https://api.themoviedb.org/3/discover/movie?api_key=82818e8e08f0fd22cb882c56c7a579fc&with_genres=${id}`);
   }

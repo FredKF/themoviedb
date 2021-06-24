@@ -117,7 +117,7 @@ export class MoviesExtendedComponent implements OnInit {
 
   navigateToSearchComponent(){
     if(this.keyword){
-      this.router.navigateByUrl(`/search/${this.keyword}`);
+      this.router.navigateByUrl(`/search/${this.keyword}/movies`);
     }
   }
 

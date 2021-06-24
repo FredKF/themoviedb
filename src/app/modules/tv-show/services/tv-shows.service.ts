@@ -18,4 +18,13 @@ export class TvShowsService {
   getTvShowDetails(id: string): Observable<TvShowDetail> {
     return this.httpClient.get<TvShowDetail>(`https://api.themoviedb.org/3/tv/${id}?api_key=82818e8e08f0fd22cb882c56c7a579fc&language=en-US`);    
   }
+
+  getTvShowsPag(tvShowType: string, pageNumber: string): Observable<RootTvShow>{
+    return this.httpClient.get<RootTvShow>(`https://api.themoviedb.org/3/tv/${tvShowType}?api_key=82818e8e08f0fd22cb882c56c7a579fc&language=en-US&page=${pageNumber}`);
+  }
+
+  getTvShows(tvShowType: string): Observable<RootTvShow>{
+    return this.httpClient.get<RootTvShow>(`https://api.themoviedb.org/3/tv/${tvShowType}?api_key=82818e8e08f0fd22cb882c56c7a579fc&language=en-US&page=1`)
+  }
+  
 }

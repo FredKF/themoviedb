@@ -5,7 +5,8 @@
   width: 70%;
   margin-top: 60px;
   border-radius: 5px;
-  box-shadow: 5px 10px#888888;
+  box-shadow: 5px 10px#d1cccc;
+  border: 2px solid rgb(166, 173, 236);
 }
 span{
   font-weight: bold;

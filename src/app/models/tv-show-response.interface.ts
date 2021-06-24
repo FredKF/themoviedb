@@ -1,4 +1,4 @@
-export interface tvShowsResult {
+export interface TvShowsResult {
     backdrop_path: string;
     first_air_date: string;
     genre_ids: number[];
@@ -11,12 +11,11 @@ export interface tvShowsResult {
     popularity: number;
     poster_path: string;
     vote_average: number;
-    vote_count: number;
 }
 
 export interface RootTvShow {
     page: number;
-    results: tvShowsResult[];
+    results: TvShowsResult[];
     total_pages: number;
     total_results: number;
 }

@@ -22,6 +22,7 @@ export class SearchComponent implements OnInit {
   length:number;
   movieType: string;
   currentIndex:number;
+  searchType: string;
 
   constructor(private searchService: SearchService,
               private route: ActivatedRoute,
@@ -30,8 +31,24 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.keyword = params.query;
+      this.searchType = params.searchType;
       this.searchPageIndex = 1;
     });
+
+    if(this.searchType == 'tvShows'){
+      this.searchService.getSearchTvShows(this.keyword,this.searchPageIndex.toString()).subscribe(
+        res => {
+          // this.cleanDataSource(res.results);
+          // this.auxDataSource = res.results;
+          if(res.results.length === 0){
+            this.hidden = false;
+          }
+          this.getAllSearchData(res.total_pages);
+        }
+      )
+   }
+
+    
     this.searchService.getSearchMovies(this.keyword,this.searchPageIndex.toString()).subscribe(
           res => {
             this.cleanDataSource(res.results);
