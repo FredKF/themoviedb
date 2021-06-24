@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute } from '@angular/router';
-import { MoviesResponse } from 'src/app/models/movie-response.interface';
 import { SearchService } from 'src/app/services/search.service';
 import {Location} from '@angular/common';
 
@@ -14,8 +13,8 @@ export class SearchComponent implements OnInit {
   hidden: boolean = true;
   keyword: string;
   searchPageIndex: number;
-  datasource: MoviesResponse[];
-  auxDataSource: MoviesResponse[];
+  datasource: any[];
+  auxDataSource: any[];
   pageEvent: PageEvent;
   pageIndex:number;
   pageSize:number;
@@ -35,35 +34,21 @@ export class SearchComponent implements OnInit {
       this.searchPageIndex = 1;
     });
 
-    if(this.searchType == 'tvShows'){
-      this.searchService.getSearchTvShows(this.keyword,this.searchPageIndex.toString()).subscribe(
+      this.searchService.getSearchResults(this.keyword,this.searchPageIndex.toString(), this.searchType).subscribe(
         res => {
-          // this.cleanDataSource(res.results);
-          // this.auxDataSource = res.results;
+          this.cleanDataSource(res.results);
+          this.auxDataSource = res.results;
           if(res.results.length === 0){
             this.hidden = false;
           }
-          this.getAllSearchData(res.total_pages);
+          this.getAllSearchData(res.total_pages, this.searchType);
         }
-      )
-   }
-
-    
-    this.searchService.getSearchMovies(this.keyword,this.searchPageIndex.toString()).subscribe(
-          res => {
-            this.cleanDataSource(res.results);
-            this.auxDataSource = res.results;
-            if(res.results.length === 0){
-              this.hidden = false;
-            }
-            this.getAllSearchData(res.total_pages);
-          }
-        )
+      )   
      }
 
-     getAllSearchData(totalPages: number): void{
+     getAllSearchData(totalPages: number, searchType: string): void{
       for(let index=1; index < totalPages; index ++){
-        this.searchService.getSearchMovies(this.keyword,index.toString()).subscribe(
+        this.searchService.getSearchResults(this.keyword,index.toString(), searchType).subscribe(
           response =>{
             this.cleanDataSource(response.results);
             this.cleanDataSource(this.auxDataSource);
@@ -79,7 +64,7 @@ export class SearchComponent implements OnInit {
       }
    }
 
-  cleanDataSource(results: MoviesResponse[]): MoviesResponse[]{
+  cleanDataSource(results: any[]): any[]{
     for(let result of results){
       if(this.elementContainsNull(result)){
         var filteredList = results.splice(results.indexOf(result),10);
@@ -88,7 +73,7 @@ export class SearchComponent implements OnInit {
     return filteredList;
   }
 
-  elementContainsNull(result: MoviesResponse): boolean {
+  elementContainsNull(result: any): boolean {
     var nullValuesFound: number = 0;
     for(var key in result){
       if(result[key] === null){

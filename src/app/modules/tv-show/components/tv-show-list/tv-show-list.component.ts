@@ -10,7 +10,7 @@ import { TvShowsService } from 'src/app/modules/tv-show/services/tv-shows.servic
   styleUrls: ['./tv-show-list.component.css'],
 })
 export class TvShowListComponent implements OnInit {
-  tvShows: TvShowsResult[];
+  tvShows: any[];
   keyword: string;
   mainTitle: string;
   tvShowType: string;

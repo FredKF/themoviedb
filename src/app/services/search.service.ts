@@ -18,4 +18,12 @@ export class SearchService {
   getSearchTvShows(keyword: string, pageIndex: string): Observable<RootTvShow>{    
     return this.httpClient.get<RootTvShow>(`https://api.themoviedb.org/3/search/tv?api_key=82818e8e08f0fd22cb882c56c7a579fc&language=en-US&query=${keyword}&page=${pageIndex}&include_adult=false`);
   }  
+
+  getSearchResults(keyword: string, pageIndex: string, searchType: string): Observable<any>{
+    if(searchType === 'tvShows'){
+      return this.httpClient.get<RootTvShow>(`https://api.themoviedb.org/3/search/tv?api_key=82818e8e08f0fd22cb882c56c7a579fc&language=en-US&query=${keyword}&page=${pageIndex}&include_adult=false`); 
+    }else{
+      return this.httpClient.get<MovieRootObject>(`https://api.themoviedb.org/3/search/movie?api_key=82818e8e08f0fd22cb882c56c7a579fc&language=en-US&query=${keyword}&page=${pageIndex}&include_adult=false`);
+    }
+  }
 }

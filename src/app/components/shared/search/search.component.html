@@ -4,13 +4,18 @@
   <button class="go-back-button" (click)="goBack()"><- Go Back </button>
 </div>
 
-<div class="container">
-    <app-movie-item *ngFor="let movie of datasource" [movie]="movie">
-    </app-movie-item>
+<div *ngIf="searchType === 'movies'" class="container">
+    <app-movie-item style="display: flex;" *ngFor="let movie of datasource" [movie]="movie">
+    </app-movie-item>    
+</div>  
+
+
+<div *ngIf="searchType === 'tvShows'" class="container">
+  <app-tv-show-item style="display: flex;" *ngFor="let tvShow of datasource" [tvShow]="tvShow">
+  </app-tv-show-item>
 </div>
 
 
-
-<div [class.hidden]="hidden">
+<div [class.hidden]="hidden" class="no-results">
   <h1>NO RESULTS FOUND :(</h1>
 </div>

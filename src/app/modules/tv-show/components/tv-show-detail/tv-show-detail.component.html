@@ -1,11 +1,25 @@
-<!-- <div class="movie">
-    <img src="http://image.tmdb.org/t/p/w185/{{tvShowDetail.poster_path}}" [alt]="tvShowDetail.name">
-    <h3>{{tvShowDetail.name}}</h3>
-    <p>{{tvShowDetail.overview}}</p>
-</div> -->
-
-<div class="movie" *ngIf="tvShowDetail$ | async as tvShowDetail" >
-    <img src="http://image.tmdb.org/t/p/w185/{{tvShowDetail.poster_path}}" [alt]="tvShowDetail.name">
-    <h3>{{tvShowDetail.name}}</h3>
-    <p>{{tvShowDetail.overview}}</p>
-</div>
+<div class="movie-detail"  *ngIf="tvShowDetail$ | async as tvShowDetail">
+    <div class="img-container">
+      <img src="http://image.tmdb.org/t/p/w185/{{tvShowDetail.poster_path}}" [alt]="tvShowDetail.original_title">
+    </div>
+    <section class="content">
+      <div class="">
+        <h1>{{tvShowDetail.title}}</h1>
+        <h2>{{tvShowDetail.original_title}}</h2>
+        <span>Overview</span>
+        <p>{{tvShowDetail.overview}}</p>      
+        <span>Release date:</span>
+          <p>{{tvShowDetail.release_date | date:'mediumDate'}}</p>        
+        <br/>
+        <div class="genres">
+          <span>Genres</span>
+          <ul class="genres-list">
+            <li class="genre-name" *ngFor="let genre of tvShowDetail.genres">
+              {{genre.name}}
+            </li>
+        </ul>
+        </div>
+        <span>{{tvShowDetail.vote_count}} Votes</span>
+      </div>
+    </section>  
+  </div>
