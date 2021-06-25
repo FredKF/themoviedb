@@ -3,6 +3,8 @@ import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute } from '@angular/router';
 import { SearchService } from 'src/app/services/search.service';
 import {Location} from '@angular/common';
+import { RootTvShow, TvShowsResult } from 'src/app/models/tv-show-response.interface';
+import { MovieRootObject, MoviesResponse } from 'src/app/models/movie-response.interface';
 
 @Component({
   selector: 'app-search',
@@ -13,7 +15,7 @@ export class SearchComponent implements OnInit {
   hidden: boolean = true;
   keyword: string;
   searchPageIndex: number;
-  datasource: any[];
+  datasource: any[]=[];
   auxDataSource: any[];
   pageEvent: PageEvent;
   pageIndex:number;
@@ -52,12 +54,13 @@ export class SearchComponent implements OnInit {
      }
 
      getAllSearchData(totalPages: number, searchType: string): void{
-      for(let index=1; index < totalPages; index ++){
+
+      for(let index=1; index <= totalPages; index ++){
         this.searchService.getSearchResults(this.keyword,index.toString(), searchType).subscribe(
           response =>{
             this.cleanDataSource(response.results);
             this.cleanDataSource(this.auxDataSource);
-            this.datasource = this.auxDataSource.concat(response.results);
+            this.datasource=this.auxDataSource.concat(response.results);
             this.pageIndex = this.currentIndex;
             this.length = response.total_results;
             this.pageSize= response.results.length;

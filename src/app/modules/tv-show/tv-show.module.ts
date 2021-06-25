@@ -7,6 +7,7 @@ import { TvShowDetailComponent } from './components/tv-show-detail/tv-show-detai
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     TvShowRoutingModule,
     MatIconModule,
     MatPaginatorModule,
-    FormsModule
+    FormsModule,
+    MatButtonModule
   ]
 })
 export class TvShowModule { }
