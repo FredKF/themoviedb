@@ -12,6 +12,8 @@
         </div>
       </form>
 
+      <hr>
+
       <section class="">
           <div class="action-buttons">
             <button mat-button class="" (click)="uncheckAll()">Clear<mat-icon>clear</mat-icon></button>
@@ -28,6 +30,8 @@
         </span>
       </section>
 
+      <hr>
+
     <div class="filters">
       <button mat-button class="search-button" (click)="sortTopTen()">Top Ten Popular</button>
     </div>
@@ -43,9 +47,7 @@
         mat-button>Popular</span>
       <span class="nav-link">|</span>
       <span class="nav-link" routerLink="/movies/movies-extended/now_playing" routerLinkActive="active" mat-button>Now
-        playing</span>
-      <span class="nav-link">|</span>
-      <span class="nav-link" routerLink="/movies/{{latestId}}" routerLinkActive="active" mat-button>Latest movie</span>
+        playing</span>      
     </div>
 
     <div class="main-title">
@@ -57,9 +59,9 @@
       </app-movie-item>
     </div>
 
-    <div class="paginator">
+    <div [class.hidden]="hidden"  class="paginator">
       <mat-paginator [length]="length" [pageIndex]="pageIndex" [pageSize]="pageSize"
-        (page)="pageEvent = getServerData($event, input.keyword)">
+        (page)="pageEvent = getServerData($event)">
       </mat-paginator>
     </div>
   </div>

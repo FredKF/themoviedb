@@ -33,6 +33,7 @@ export class MoviesExtendedComponent implements OnInit {
   genresRoot: GenreRootObject;
   genresNames: string[];
   genresIds: string[] = [];
+  hidden: boolean = false;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -46,8 +47,8 @@ export class MoviesExtendedComponent implements OnInit {
              }
 
   ngOnInit() {
+    this.hidden = false;
     this.populateGenders();
-    this.getLatest();
     this.route.params.subscribe(params => {
       this.movieType = params.movieType;
     });
@@ -62,7 +63,8 @@ export class MoviesExtendedComponent implements OnInit {
     )
  }
 
- getServerData(pageEvent:PageEvent, keyword: string): PageEvent{
+ getServerData(pageEvent:PageEvent): PageEvent{
+  this.hidden = false;
   this.currentIndex = pageEvent.pageIndex;
   pageEvent.pageIndex +=1;
 
@@ -80,16 +82,8 @@ export class MoviesExtendedComponent implements OnInit {
   return pageEvent;
  }
 
- getLatest(){
-  this.movieService.getLatest().subscribe(
-    res => {
-      this.latest = res;
-      this.latestId = this.latest.id;
-    }
-  )
- }
-
   sortTopTen(){
+    this.hidden = true;
     this.datasource.sort((movie, nextMovie) => movie.popularity < nextMovie.popularity ? 1 : -1);
     var sortedList = this.datasource.slice(0, 10);
     this.datasource = sortedList;
@@ -144,6 +138,7 @@ export class MoviesExtendedComponent implements OnInit {
   }
 
   filterByGenres(){
+    this.hidden = true;
     this.movieService.getGenresById(this.genresIds).subscribe(
       res =>{
         this.datasource = res.results;
@@ -158,5 +153,6 @@ export class MoviesExtendedComponent implements OnInit {
     this.checkboxes.forEach((element) => {
       element.nativeElement.checked  = false;
     });
+    this.ngOnInit();
   }
 }

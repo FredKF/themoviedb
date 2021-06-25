@@ -7,22 +7,19 @@
     </div>
     <section class="content">
       <div class="">
-        <h1>{{tvShowDetail.title}}</h1>
-        <h2>{{tvShowDetail.original_title}}</h2>
-        <span>Overview</span>
+        <h1>{{tvShowDetail.name}}</h1>        
+        <span class="bold">Overview</span>
         <p>{{tvShowDetail.overview}}</p>
-        <span>Release date:</span>
-          <p>{{tvShowDetail.release_date | date:'mediumDate'}}</p>
+        <span class="bold">Release date:</span>
+          <p>{{tvShowDetail.first_air_date | date:'mediumDate'}}</p>
         <br/>
         <div class="genres">
-          <span>Genres</span>
-          <ul class="genres-list">
-            <li class="genre-name" *ngFor="let genre of tvShowDetail.genres">
-              {{genre.name}}
-            </li>
-        </ul>
+          <span class="bold">Genres</span>          
+          <span *ngFor="let genre of tvShowDetail.genres">
+            {{genre.name}}
+          </span>        
         </div>
-        <span>{{tvShowDetail.vote_count}} Votes</span>
+        <span class="bold">{{tvShowDetail.vote_count}} Votes</span>
       </div>
     </section>
   </div>

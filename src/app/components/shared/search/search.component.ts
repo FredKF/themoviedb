@@ -59,8 +59,12 @@ export class SearchComponent implements OnInit {
         this.searchService.getSearchResults(this.keyword,index.toString(), searchType).subscribe(
           response =>{
             this.cleanDataSource(response.results);
-            this.cleanDataSource(this.auxDataSource);
-            this.datasource = this.auxDataSource.concat(response.results);
+            this.cleanDataSource(this.auxDataSource);            
+            if (response.results[0].id == this.auxDataSource[0].id){//catch possible duplicated results
+              this.datasource = response.results;              
+            }else{
+              this.datasource = this.auxDataSource.concat(response.results);              
+            }            
             this.pageIndex = this.currentIndex;
             this.length = response.total_results;
             this.pageSize= response.results.length;
@@ -75,7 +79,7 @@ export class SearchComponent implements OnInit {
   cleanDataSource(results: any[]): any[]{
     for(let result of results){
       if(this.elementContainsNull(result)){
-        var filteredList = results.splice(results.indexOf(result),10);
+        var filteredList = results.splice(results.indexOf(result),1);
       }
     }
     return filteredList;

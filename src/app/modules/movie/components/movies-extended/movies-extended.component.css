@@ -17,12 +17,12 @@
 }
 
 .side-container{
-    margin-right: 100px;
-    border-right: 1px solid grey;
+  width: 20%;
+  margin-left: 30px;    
 }
 
 .form-group{
-  margin-top: 60px;
+  margin-top: 20px;
   padding: 5px;
   margin-bottom: 15px;
 }
@@ -32,7 +32,9 @@
 }
 
 .search-button{
-
+  position: absolute;  
+  margin-top: 10px;
+  margin-left: -90px;
   color: rgb(78, 77, 77);
 }
 
@@ -42,6 +44,7 @@
 }
 
 .search-input{
+  width: 100%;
   padding: 12px 10px;
   margin: 8px 0;
   border: 1px solid #ccc;
@@ -89,4 +92,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.hidden{
+  visibility: hidden;
 }

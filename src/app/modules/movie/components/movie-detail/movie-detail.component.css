@@ -9,9 +9,11 @@
   border: 2px solid rgb(166, 173, 236);
   padding: 15px;
 }
-span{
+
+.bold{
   font-weight: bold;
 }
+
 .content{
   width: 60%;
   line-height: 30px;
