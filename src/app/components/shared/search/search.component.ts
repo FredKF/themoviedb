@@ -15,7 +15,7 @@ export class SearchComponent implements OnInit {
   hidden: boolean = true;
   keyword: string;
   searchPageIndex: number;
-  datasource: any[]=[];
+  datasource: any[];
   auxDataSource: any[];
   pageEvent: PageEvent;
   pageIndex:number;
@@ -37,7 +37,7 @@ export class SearchComponent implements OnInit {
       this.searchPageIndex = 1;
     });
 
-    if(this.searchType ==='movies'){
+    if(this.searchType === 'movies'){
       this.isMovieSearch = true;
     }
 
@@ -50,17 +50,17 @@ export class SearchComponent implements OnInit {
           }
           this.getAllSearchData(res.total_pages, this.searchType);
         }
-      )   
+      )
      }
 
      getAllSearchData(totalPages: number, searchType: string): void{
-
+       //loop to get all results pages
       for(let index=1; index <= totalPages; index ++){
         this.searchService.getSearchResults(this.keyword,index.toString(), searchType).subscribe(
           response =>{
             this.cleanDataSource(response.results);
             this.cleanDataSource(this.auxDataSource);
-            this.datasource=this.auxDataSource.concat(response.results);
+            this.datasource = this.auxDataSource.concat(response.results);
             this.pageIndex = this.currentIndex;
             this.length = response.total_results;
             this.pageSize= response.results.length;

@@ -3,21 +3,22 @@
   display: flex;
   justify-content: space-around;
   width: 70%;
-  margin-top: 60px;
+  margin-top: 20px;
   border-radius: 5px;
   box-shadow: 5px 10px#d1cccc;
   border: 2px solid rgb(166, 173, 236);
+  padding: 15px;
 }
 span{
   font-weight: bold;
 }
 .content{
   width: 60%;
-  line-height: 30px;  
+  line-height: 30px;
 }
 
 .movie-detail img{
-  width: 300px !important;  
+  width: 300px !important;
   border-radius: 5px;
 }
 

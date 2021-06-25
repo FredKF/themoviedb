@@ -9,12 +9,13 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 
-
 @NgModule({
   declarations: [
     TvShowListComponent,
     TvShowItemComponent,
-    TvShowDetailComponent],
+    TvShowDetailComponent
+
+  ],
   imports: [
     CommonModule,
     TvShowRoutingModule,
@@ -22,6 +23,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatPaginatorModule,
     FormsModule,
     MatButtonModule
-  ]
+  ],
+  exports: [TvShowItemComponent]
 })
 export class TvShowModule { }

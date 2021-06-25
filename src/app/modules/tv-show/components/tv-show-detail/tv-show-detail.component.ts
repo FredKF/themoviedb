@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { TvShowDetail } from 'src/app/models/tv-show-detail.interface';
 import { TvShowsService } from '../../services/tv-shows.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-tv-show-detail',
@@ -12,11 +13,15 @@ import { TvShowsService } from '../../services/tv-shows.service';
 export class TvShowDetailComponent implements OnInit {
   tvShowDetail$: Observable<TvShowDetail>;
   constructor(private route: ActivatedRoute,
-              private tvShowsService: TvShowsService) { }
+              private tvShowsService: TvShowsService,
+              private location: Location) { }
 
     ngOnInit(): void {
       this.route.params.subscribe(params =>{
-        this.tvShowDetail$ = this.tvShowsService.getTvShowDetails(params.id)          
-      }); 
+        this.tvShowDetail$ = this.tvShowsService.getTvShowDetails(params.id)
+      });
+    }
+    goBack(){
+      this.location.back()
     }
  }

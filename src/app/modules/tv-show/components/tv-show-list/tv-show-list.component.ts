@@ -10,7 +10,7 @@ import { TvShowsService } from 'src/app/modules/tv-show/services/tv-shows.servic
   styleUrls: ['./tv-show-list.component.css'],
 })
 export class TvShowListComponent implements OnInit {
-  tvShows: any[];
+  tvShows: TvShowsResult[];
   keyword: string;
   mainTitle: string;
   tvShowType: string;
@@ -19,7 +19,7 @@ export class TvShowListComponent implements OnInit {
   length: number;
   pageEvent: PageEvent;
   currentIndex: number;
-  
+
   constructor(
     private tvShowsService: TvShowsService,
     private route: ActivatedRoute,
@@ -32,10 +32,10 @@ export class TvShowListComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {  
+  ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.tvShowType = params.tvShowType;
-    });      
+    });
     this.tvShowsService.getTvShows(this.tvShowType).subscribe(
       (res) => {
         this.tvShows = res.results;
@@ -52,7 +52,7 @@ export class TvShowListComponent implements OnInit {
 
   navigateToSearchComponent() {
     if (this.keyword) {
-      this.router.navigateByUrl(`/search/${this.keyword}/tvShows`);
+      this.router.navigateByUrl(`search/${this.keyword}/tvShows`);
     }
   }
 

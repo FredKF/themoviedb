@@ -8,7 +8,6 @@ import { HeroComponent } from 'src/app/components/shared/hero/hero.component';
 import { MoviesExtendedComponent } from './components/movies-extended/movies-extended.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SearchComponent } from 'src/app/components/shared/search/search.component';
 import { MatCardModule } from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatButtonModule} from '@angular/material/button';
@@ -21,8 +20,7 @@ import {MatIconModule} from '@angular/material/icon';
     MovieItemComponent,
     MovieDetailComponent,
     MovieListComponent,
-    MoviesExtendedComponent,
-    SearchComponent
+    MoviesExtendedComponent
   ],
   imports: [
     CommonModule,
@@ -34,6 +32,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatCheckboxModule,
     MatButtonModule,
     MatIconModule
-  ]
+  ],
+  exports: [MovieItemComponent]
 })
 export class MovieModule { }

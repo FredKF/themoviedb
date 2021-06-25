@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MovieDetails } from 'src/app/models/movie-detail.interface';
 import { GenreRootObject } from 'src/app/models/movie-genres.interface';
 import { MovieService } from 'src/app/modules/movie/services/movie.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-movie-detail',
@@ -16,7 +17,8 @@ export class MovieDetailComponent implements OnInit {
   genresNames: string[] = [];
 
   constructor(private route: ActivatedRoute,
-              private movieService: MovieService) { }
+              private movieService: MovieService,
+              private location: Location) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params =>{
@@ -28,5 +30,9 @@ export class MovieDetailComponent implements OnInit {
           console.error(error)
         });
     });
+  }
+
+  goBack(){
+    this.location.back()
   }
 }

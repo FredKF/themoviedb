@@ -40,7 +40,7 @@ export class MoviesExtendedComponent implements OnInit {
               ) {
                 this.route.paramMap.subscribe(params => {
                   if(params){
-                  this.ngOnInit();
+                  this.ngOnInit(); //recharges the current component
                   }
               });
              }

@@ -12,13 +12,21 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatBadgeModule} from '@angular/material/badge';
 import { FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { FooterComponent } from './components/shared/footer/footer.component';
+import { MatIconModule } from '@angular/material/icon';
+import { SearchComponent } from './components/shared/search/search.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MovieRoutingModule } from './modules/movie/movie-routing.module';
+import { TvShowRoutingModule } from './modules/tv-show/tv-show-routing.module';
+import { MovieModule } from './modules/movie/movie.module';
+import { TvShowModule } from './modules/tv-show/tv-show.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +39,11 @@ import { FooterComponent } from './components/shared/footer/footer.component';
     MatToolbarModule,
     MatBadgeModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule,
+    MatButtonModule,
+    MovieModule,
+    TvShowModule
   ],
   providers: [],
   bootstrap: [AppComponent]
