@@ -144,7 +144,7 @@
 @media screen and (max-width: 590px) {
   .container{
     display: grid;
-    grid-template-columns: repeat(1,300px);
+    grid-template-columns: repeat(2,185px);
     width: 80%;
     margin: auto;
     justify-content: center;
