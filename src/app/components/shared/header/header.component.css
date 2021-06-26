@@ -1,16 +1,14 @@
-.toolbar-row-container{
-  width: 70%;
-  margin: auto;
-  display: flex;
-  justify-content: flex-start;
+.toolbar-row-container{  
+  overflow: hidden;   
 }
 
-a{
-  all:unset;
-  padding: 1em;
-  cursor: pointer;
+.toolbar-row-container a{    
+  float: left;
+  display: block;
   font-size: 16px;
-  margin-left: 30px;
+  text-align: center;
+  padding: 0.5em;
+  text-decoration: none;
 }
 
 a:hover{
@@ -20,10 +18,41 @@ a:hover{
 
 a.active{
   background-color: rgb(32, 189, 228);
+  min-height: auto;
 }
 
-.toolbar-row-container img{
+img{
   height: 50px;
   margin-top: 5px;
   cursor: pointer;
 }
+
+.toolbar-row-container a.icon {
+  display: none; 
+  color: #f2f2f2;
+}
+
+
+
+/* 
+@media screen and (max-width: 600px) {
+  .toolbar-row-container a:not(:first-child) {display: none;}
+  .toolbar-row-container a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .toolbar-row-container.responsive {position: relative;}
+  .toolbar-row-container.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .toolbar-row-container.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+} */ 

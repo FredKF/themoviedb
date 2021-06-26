@@ -13,6 +13,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
@@ -33,7 +36,10 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatCheckboxModule,
     MatButtonModule,
     MatIconModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatMenuModule    
   ],
   exports: [MovieItemComponent]
 })

@@ -11,17 +11,13 @@
           </div>
         </div>
       </form>
-
       <hr>
-
       <section class="">
           <div class="action-buttons">
             <button mat-stroked-button (click)="uncheckAll()">Clear<mat-icon>clear</mat-icon></button>
             <button mat-stroked-button (click)="filterByGenres()">Apply<mat-icon>done</mat-icon></button>
         </div>
-
         <hr>
-
         <mat-accordion>
           <mat-expansion-panel hideToggle>                               
             <mat-expansion-panel-header>
@@ -42,7 +38,6 @@
         </mat-accordion>        
       </section>
       <hr>
-
     <table class="filters">      
       <button routerLink="/movies/movies-extended/top_rated" routerLinkActive="active" mat-stroked-button class="filter-button">Top rated</button>
       <button routerLink="/movies/movies-extended/popular" routerLinkActive="active" mat-stroked-button class="filter-button">Popular</button>
@@ -52,7 +47,7 @@
 
     </aside>
   </div>
-  <div class="main-container">
+  <div class="content-wrapper">
   <div class="content-container">    
 
     <div class="main-title">

@@ -1,10 +1,22 @@
 <mat-toolbar color="primary">  
-    <mat-toolbar-row>
-      <div class="toolbar-row-container">    
-        <img routerLink="movies" src="../../../../assets/images/logo.png" alt="logo">
+    <mat-toolbar-row>      
+      <img routerLink="movies" src="../../../../assets/images/logo.png" alt="logo">
+      <div fxFlex fxShow="true" fxHide.lt-md="true" fxHide.sm="true" class="toolbar-row-container" >        
         <a routerLink="movies" mat-button>Home</a>
         <a routerLink="/movies/movies-extended/upcoming" routerLinkActive="active" mat-button>Movies</a>
-        <a routerLink="tvshows/tv-show-list/popular" routerLinkActive="active" mat-button>TV Shows</a>
+        <a routerLink="tvshows/tv-show-list/popular" routerLinkActive="active" mat-button>TV Shows</a>       
+        <a href="javascript:void(0);" class="icon"><mat-icon class="icon">menu</mat-icon></a>
+         <a href="javascript:void(0);" class="icon"><i class="fa fa-bars"></i></a>         
       </div>
-    </mat-toolbar-row>
+      <div fxShow="true" fxHide.gt-sm="true">
+      <button mat-button [matMenuTriggerFor]="menu"><mat-icon class="icon">menu</mat-icon></button>
+      <mat-menu #menu="matMenu">
+        <div fxLayout="column">
+          <a routerLink="movies" mat-button>Home</a>
+          <a routerLink="/movies/movies-extended/upcoming" routerLinkActive="active" mat-button>Movies</a>
+          <a routerLink="tvshows/tv-show-list/popular" routerLinkActive="active" mat-button>TV Shows</a>                
+        </div>
+      </mat-menu>
+    </div>                   
+    </mat-toolbar-row>    
 </mat-toolbar>

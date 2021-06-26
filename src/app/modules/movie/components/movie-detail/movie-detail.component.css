@@ -28,9 +28,30 @@
   list-style: none;
 }
 
-.gallery{
-  width: 80%;
-  margin: auto;
-  margin-top: 20px;
+
+@media screen and (max-width: 1360px) {  
+  .movie-detail{
+    display: block;
+  }
+  .content{
+    display: block;
+    width: 100%;
+    line-height: 20px;
+  }  
 }
 
+@media screen and (max-width: 590px) {  
+  .movie-detail{
+    display: block;
+  }
+
+  .content{
+    width: 100%;
+    line-height: 20px;
+  }  
+
+  .movie-detail img{
+    width: 300px !important;
+    border-radius: 5px;
+  }
+}
