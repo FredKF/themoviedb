@@ -10,21 +10,20 @@
             Required search keyword
           </div>
         </div>
-      </form>   
+      </form>  
+      <hr>
+      <table class="filters">      
+        <button routerLink="/tvshows/tv-show-list/top_rated" routerLinkActive="active" mat-stroked-button class="filter-button">Top rated</button>
+        <button routerLink="/tvshows/tv-show-list/popular" routerLinkActive="active" mat-stroked-button class="filter-button">Popular</button>
+        <button routerLink="/tvshows/tv-show-list/on_the_air" mat-stroked-button class="filter-button">On the air</button>
+        <button routerLink="/tvshows/tv-show-list/airing_today" mat-stroked-button class="filter-button">Airing today</button>
+        
+      </table>
     </aside>
   </div>
   <div class="main-container">
   <div class="content-container">
-    <div class="movie-navigation">
-      <span class="nav-link" routerLink="/tvshows/tv-show-list/top_rated" routerLinkActive="active" mat-button>Top rated</span>
-      <span class="nav-link">|</span>
-      <span class="nav-link" routerLink="/tvshows/tv-show-list/popular" routerLinkActive="active" mat-button>Popular</span>
-      <span class="nav-link">|</span>
-      <span class="nav-link" routerLink="/tvshows/tv-show-list/on_the_air" routerLinkActive="active" mat-button>On the air</span>
-      <span class="nav-link">|</span>
-      <span class="nav-link" routerLink="/tvshows/tv-show-list/airing_today" routerLinkActive="active" mat-button>Airing today</span>
-    </div>
-
+    
     <div class="main-title">
       <h1>{{mainTitle}}</h1>
     </div>

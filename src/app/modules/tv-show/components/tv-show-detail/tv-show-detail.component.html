@@ -7,12 +7,18 @@
     </div>
     <section class="content">
       <div class="">
-        <h1>{{tvShowDetail.name}}</h1>        
+        <h1>{{tvShowDetail.name}}</h1>
+        <span>{{tvShowDetail.origin_country}}</span>
+        <br>
         <span class="bold">Overview</span>
         <p>{{tvShowDetail.overview}}</p>
         <span class="bold">Release date:</span>
           <p>{{tvShowDetail.first_air_date | date:'mediumDate'}}</p>
         <br/>
+        <span class="bold">Seasons: </span> 
+        <p>{{tvShowDetail.seasons.length}}</p>
+        <span class="bold">Episodes: </span> 
+        <p>{{tvShowDetail.number_of_episodes}}</p>        
         <div class="genres">
           <span class="bold">Genres</span>          
           <span *ngFor="let genre of tvShowDetail.genres">
