@@ -1,0 +1,75 @@
+.main-container{
+  padding-bottom: 400px;
+}
+
+.container{
+  width: 70%;
+  margin: auto;
+  justify-content: center;
+  overflow-x: hidden;
+  margin-bottom: 20px;
+}
+
+.paginator {
+  display: flex;
+  justify-content: center !important;
+}
+
+.container h2{
+  margin-bottom: 20px;
+}
+
+.grid-container{
+  display: flex;
+}
+
+.movie-list-container{
+    overflow-x: scroll;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 30px;
+
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 30px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.movie-types-text:hover{
+  cursor: pointer;  
+}
+
+.movie-types-text h2:hover{
+  cursor: pointer;
+  font-style: bold;  
+  color: #555;
+}
+
+.movie-types-text h2{
+  height: 30px;
+  background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(255, 255, 255));
+  background-color: cornflowerblue;
+  color: rgb(235, 230, 230);
+}
+
+
+@media screen and (max-width: 600px) {  
+  .container{
+    width: 100%;
+  }
+}

@@ -1,0 +1,57 @@
+.movie-detail{
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  width: 70%;
+  margin-top: 20px;
+  border-radius: 5px;
+  box-shadow: 5px 10px#d1cccc;
+  border: 2px solid rgb(166, 173, 236);
+  padding: 15px;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.content{
+  width: 60%;
+  line-height: 30px;
+}
+
+.movie-detail img{
+  width: 300px !important;
+  border-radius: 5px;
+}
+
+.genres-list{
+  list-style: none;
+}
+
+
+@media screen and (max-width: 1260px) {  
+  .movie-detail{
+    display: block;
+  }
+  .content{
+    display: block;
+    width: 100%;
+    line-height: 20px;
+  }  
+}
+
+@media screen and (max-width: 590px) {  
+  .movie-detail{
+    display: block;
+  }
+
+  .content{
+    width: 100%;
+    line-height: 20px;
+  }  
+
+  .movie-detail img{
+    width: 300px !important;
+    border-radius: 5px;
+  }
+}

@@ -1,0 +1,160 @@
+.main-container{
+  padding-bottom: 60px;
+}
+
+.main-container{
+  display: flex;
+  justify-content: space-around;  
+}
+
+.content-wrapper{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(5,185px);
+    width: 80%;
+    margin: auto;
+    justify-content: center;
+}
+
+
+
+.side-container{
+  width: 20%;
+  margin-left: 30px;    
+}
+
+.form-group{
+  margin-top: 20px;
+  padding: 5px;
+  margin-bottom: 15px;
+}
+
+.search-errors{
+  color: red;
+}
+
+.search-button{
+  position: absolute;  
+  margin-top: 10px;
+  margin-left: -60px;
+  color: rgb(78, 77, 77);
+}
+
+.action-buttons{
+  display: flex;
+  justify-content: space-around;
+}
+
+.search-input{
+  width: 100%;
+  padding: 12px 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+
+.paginator {
+  display: flex;
+  justify-content: center !important;
+}
+
+.nav-link:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.nav-link{
+  font-size: 18px;
+}
+
+.movie-navigation{
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+  width: 500px;
+  padding: 24px;
+}
+
+.main-title{
+  display: flex;
+  justify-content: center;
+  margin:auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.nav-link.active{
+  text-decoration: underline;
+  font-size: 20px;
+}
+
+.hidden{
+  visibility: hidden;
+}
+
+.filters{
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.filters button{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+
+@media screen and (max-width: 1200px) {
+  .main-container{
+    display: block;
+  }
+  .side-container {
+    width: 100%;
+    margin-left: 2px;
+  }
+}
+
+@media screen and (max-width: 900px) {  
+  .main-container{
+    display: block;
+  }
+  .side-container {
+    width: 100%;
+  }
+  .container{
+    display: grid;
+    grid-template-columns: repeat(3,185px);
+    width: 80%;
+    margin: auto;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 590px) {
+  .container{
+    display: grid;
+    grid-template-columns: repeat(2,185px);
+    width: 80%;
+    margin: auto;
+    justify-content: center;
+  }
+
+  .main-container{
+    display: block;
+  }
+  .side-container {
+    width: 100%;
+    margin-left: 2px;
+  }  
+}

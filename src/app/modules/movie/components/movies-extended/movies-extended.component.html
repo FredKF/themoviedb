@@ -1,0 +1,69 @@
+<div class="main-container">
+  <div class="side-container">
+    <aside>
+      <form class="form-group" (ngSubmit)="navigateToSearchComponent()">
+        <input class="search-input" #input="ngModel" id="input" type="search" name="input"
+          placeholder="Type kewyword..." [(ngModel)]="keyword" required />
+        <button class="search-button" mat-button type="submit"><mat-icon>search</mat-icon></button>
+        <div class="search-errors" *ngIf="input.errors && (input.dirty || input.touched)">
+          <div class="alert" *ngIf="input.errors.required">
+            Required search keyword
+          </div>
+        </div>
+      </form>
+      <hr>
+      <section class="">
+          <div class="action-buttons">
+            <button mat-stroked-button (click)="uncheckAll()">Clear<mat-icon>clear</mat-icon></button>
+            <button mat-stroked-button (click)="filterByGenres()">Apply<mat-icon>done</mat-icon></button>
+        </div>
+        <hr>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>                               
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Genres
+              </mat-panel-title>              
+            </mat-expansion-panel-header>
+            <span class="">
+              <ul *ngIf="genresRoot" style="list-style: none;">
+                <li *ngFor="let genre of genresRoot.genres">
+                  <input type="checkbox" #checkboxes color="primary" labelPosition="after" [value]="genre.name" [id]="genre.id"
+                    (change)="onCheckChange($event)">
+                    {{genre.name}}
+                </li>
+              </ul>
+            </span>            
+          </mat-expansion-panel>
+        </mat-accordion>        
+      </section>
+      <hr>
+    <table class="filters">      
+      <button routerLink="/movies/movies-extended/top_rated" routerLinkActive="active" mat-stroked-button class="filter-button">Top rated</button>
+      <button routerLink="/movies/movies-extended/popular" routerLinkActive="active" mat-stroked-button class="filter-button">Popular</button>
+      <button routerLink="/movies/movies-extended/now_playing" mat-stroked-button class="filter-button">Now Playing</button>
+      <button mat-stroked-button class="filter-button" (click)="sortTopTen()">Top 10 Popular</button>
+    </table>
+
+    </aside>
+  </div>
+  <div class="content-wrapper">
+  <div class="content-container">    
+
+    <div class="main-title">
+      <h1>{{mainTitle}}</h1>
+    </div>
+
+    <div class="container">
+      <app-movie-item style="display: flex;" *ngFor="let movie of datasource" [movie]="movie">
+      </app-movie-item>
+    </div>
+
+    <div [class.hidden]="hidden"  class="paginator">
+      <mat-paginator [length]="length" [pageIndex]="pageIndex" [pageSize]="pageSize"
+        (page)="pageEvent = getServerData($event)">
+      </mat-paginator>
+    </div>
+  </div>
+</div>
+</div>

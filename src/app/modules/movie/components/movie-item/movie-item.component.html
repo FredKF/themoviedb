@@ -1,0 +1,11 @@
+  <mat-card class="movie" routerLink="/movies/{{movie.id}}">
+    <img mat-card-image src="http://image.tmdb.org/t/p/w185/{{movie.poster_path}}" [alt]="movie.original_title">
+    <div class="popularity-badge">
+      <span class="percent">{{movie.vote_average / 10 | percent:'1.0'}}</span>      
+    </div>
+    <mat-card-content>
+      <mat-card-title>{{movie.title}}</mat-card-title>
+      <mat-card-subtitle>{{movie.original_title}}</mat-card-subtitle>
+      <h5>{{movie.release_date | date:'mediumDate'}}</h5>      
+    </mat-card-content>
+  </mat-card>

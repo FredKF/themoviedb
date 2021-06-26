@@ -1,0 +1,39 @@
+.footer-wrapper{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+}
+
+.container{
+  box-sizing: border-box;
+  width: 100%;
+  background: rgb(235, 231, 231);
+  height: 120px;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+}
+
+.powered-by img{
+  width: 100px;
+}
+
+.name{
+  font-size: 18px;
+  color:grey;
+  font-family: Roboto;
+}
+
+.powered-by{
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.powered-by-text{
+  color:grey;
+}

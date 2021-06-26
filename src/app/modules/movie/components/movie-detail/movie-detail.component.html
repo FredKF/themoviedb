@@ -1,0 +1,29 @@
+<div class="goback">
+  <button mat-button class="go-back-button" (click)="goBack()"><mat-icon>keyboard_arrow_left</mat-icon>Go Back</button>
+</div>
+
+<div class="movie-detail" *ngIf="movieDetails">
+  <div class="img-container">
+    <img src="http://image.tmdb.org/t/p/w500/{{movieDetails.poster_path}}" [alt]="movieDetails.original_title">
+  </div>
+  <section class="content">
+    <div class="">
+      <h1>{{movieDetails.title}}</h1>
+      <h2>{{movieDetails.original_title}}</h2>
+      <span class="bold">Overview</span>
+      <p>{{movieDetails.overview}}</p>
+      <span class="bold">Release date:</span>
+        <p>{{movieDetails.release_date | date:'mediumDate'}}</p>
+      <span class="bold">Runtime:</span>
+      <span>  {{movieDetails.runtime}}'</span>
+      <br/>
+      <div class="genres">
+        <span class="bold">Genres</span>        
+          <span class="genre-name" *ngFor="let genre of movieDetails.genres">
+            {{genre.name}}
+          </span>      
+      </div>
+      <span class="bold">{{movieDetails.vote_count}} Votes</span>
+    </div>
+  </section> 
+</div>

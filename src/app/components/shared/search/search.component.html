@@ -1,0 +1,21 @@
+<div class="main-title">
+  <h2>Search Results</h2>
+</div>
+
+<div class="goback">
+  <button mat-button class="go-back-button" (click)="goBack()"><mat-icon>keyboard_arrow_left</mat-icon> Go Back </button>
+</div>
+
+<div class="container" *ngIf="!isMovieSearch">
+  <app-tv-show-item style="display: flex;" *ngFor="let tvShow of datasource" [tvShow]="tvShow">
+  </app-tv-show-item>
+</div>
+
+<div class="container" *ngIf="isMovieSearch">
+    <app-movie-item style="display: flex;" *ngFor="let movie of datasource" [movie]="movie">
+    </app-movie-item>
+</div>
+
+<div [class.hidden]="hidden" class="no-results">
+  <h1>Nothing found, sorry... :(</h1>
+</div>

@@ -1,0 +1,20 @@
+<app-hero></app-hero>
+<div class="main-container">
+<div class="container" *ngFor="let movieType of movieTypes">
+  <span class="movie-types-text" routerLink="/movies/movies-extended/{{movieType}}"><h2>{{getLinkTitle(movieType)}}</h2></span>
+  <div class="movie-list-container">
+    <div class="grid-container" *ngIf="movieType == 'popular'">
+      <app-movie-item style="display:flex;" *ngFor="let movie of popularMovies" [movie]="movie">
+      </app-movie-item>
+    </div>
+    <div class="grid-container" *ngIf="movieType == 'top_rated'">
+      <app-movie-item  style="display:flex;" *ngFor="let movie of topRatedMovies" [movie]="movie">
+      </app-movie-item>
+    </div>
+    <div class="grid-container" *ngIf="movieType == 'upcoming'">
+      <app-movie-item  style="display:flex;" *ngFor="let movie of upcomingMovies" [movie]="movie">
+      </app-movie-item>
+    </div>
+  </div>
+</div>
+</div>

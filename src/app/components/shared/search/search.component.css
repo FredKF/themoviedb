@@ -1,0 +1,17 @@
+@import "../../../../app/modules/movie/components/movies-extended/movies-extended.component.css";
+
+.hidden{
+    visibility: hidden;
+}
+
+.no-results{
+    margin: auto;
+    justify-content: center;
+    display: flex;
+    padding: 60px;    
+}
+
+.no-results h1{
+    font-family: 'Roboto';
+    font-size: 60px;
+}

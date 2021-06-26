@@ -1,0 +1,31 @@
+<div class="goback">
+  <button mat-button class="go-back-button" (click)="goBack()"><mat-icon>keyboard_arrow_left</mat-icon>Go Back</button>
+</div>
+<div class="movie-detail"  *ngIf="tvShowDetail$ | async as tvShowDetail">
+    <div class="img-container">
+      <img src="http://image.tmdb.org/t/p/w500/{{tvShowDetail.poster_path}}" [alt]="tvShowDetail.original_title">
+    </div>
+    <section class="content">
+      <div class="">
+        <h1>{{tvShowDetail.name}}</h1>
+        <span>{{tvShowDetail.origin_country}}</span>
+        <br>
+        <span class="bold">Overview</span>
+        <p>{{tvShowDetail.overview}}</p>
+        <span class="bold">Release date:</span>
+          <p>{{tvShowDetail.first_air_date | date:'mediumDate'}}</p>
+        <br/>
+        <span class="bold">Seasons: </span> 
+        <p>{{tvShowDetail.seasons.length}}</p>
+        <span class="bold">Episodes: </span> 
+        <p>{{tvShowDetail.number_of_episodes}}</p>        
+        <div class="genres">
+          <span class="bold">Genres</span>          
+          <span *ngFor="let genre of tvShowDetail.genres">
+            {{genre.name}}
+          </span>        
+        </div>
+        <span class="bold">{{tvShowDetail.vote_count}} Votes</span>
+      </div>
+    </section>
+  </div>
