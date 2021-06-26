@@ -51,6 +51,18 @@
 }
 
 .movie-types-text:hover{
+  cursor: pointer;  
+}
+
+.movie-types-text h2:hover{
   cursor: pointer;
-  text-decoration: underline;
+  font-style: bold;  
+  color: #555;
+}
+
+.movie-types-text h2{
+  height: 30px;
+  background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(255, 255, 255));
+  background-color: cornflowerblue;
+  color: rgb(235, 230, 230);
 }

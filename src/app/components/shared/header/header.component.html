@@ -1,9 +1,10 @@
 <mat-toolbar color="primary">  
     <mat-toolbar-row>
-      <div class="toolbar-row-container">
-      <span class="homeLink" routerLink="movies">Home</span>
-    <span class="homeLink" routerLink="/movies/movies-extended/upcoming" mat-button>Movies</span>                        
-    <span class="homeLink" routerLink="tvshows/tv-show-list/popular" mat-button>TV Shows</span>            
+      <div class="toolbar-row-container">    
+        <img routerLink="movies" src="../../../../assets/images/logo.png" alt="logo">
+        <a routerLink="movies" mat-button>Home</a>
+        <a routerLink="/movies/movies-extended/upcoming" routerLinkActive="active" mat-button>Movies</a>
+        <a routerLink="tvshows/tv-show-list/popular" routerLinkActive="active" mat-button>TV Shows</a>
       </div>
     </mat-toolbar-row>
 </mat-toolbar>

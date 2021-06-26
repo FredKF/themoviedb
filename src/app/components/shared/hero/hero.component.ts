@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
   selector: 'app-hero',
@@ -10,15 +11,10 @@ export class HeroComponent implements OnInit {
   images: string[] = [];
   actualImage: string;
   changeBackgroundCounter = 0;
-  constructor() { }
+  constructor(private helper: HelperService) { }
 
   ngOnInit(): void {
-    this.images = ["../../../../assets/images/raiders.jpg",
-    "../../../../assets/images/mandalorian.jpg",
-    "../../../../assets/images/kong.jpg",
-    "../../../../assets/images/scarface.jpg",
-    "../../../../assets/images/starwars.jpg",
-    "../../../../assets/images/terminator.jpg"];      
+    this.images = this.helper.getHeroImages();   
 
       this.actualImage = this.images[0];
       setInterval(() => {

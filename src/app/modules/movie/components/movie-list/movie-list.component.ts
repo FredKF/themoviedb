@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieType } from 'src/app/enums/moive-type.enum';
 import { MovieRootObject, MoviesResponse } from 'src/app/models/movie-response.interface';
 import { MovieService } from 'src/app/modules/movie/services/movie.service';
+import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
   selector: 'app-movie-list',
@@ -14,12 +16,14 @@ export class MovieListComponent implements OnInit {
   topRatedMovies: MoviesResponse [] = [];
   upcomingMovies: MoviesResponse [] = [];  
   list: MoviesResponse[] = [];
+  movieTypes: string[];  
+  linkTitle: string;
 
-  movieTypes: string[] = ["popular", "top_rated", "upcoming"];
-  
-  constructor(private movieService: MovieService ) { }  
+  constructor(private movieService: MovieService,
+              private helper: HelperService ) { }  
 
-  ngOnInit(): void {      
+  ngOnInit(): void {    
+    this.movieTypes = this.helper.getHomeMovieTypes();
     this.movieTypes.forEach(movieType => {
       this.getMovieList(movieType)
     });
@@ -28,36 +32,22 @@ export class MovieListComponent implements OnInit {
   getMovieList(movieType: string){
     this.movieService.getMovies(movieType).subscribe(
       (res) =>{
-        if(movieType == "popular"){
+        if(movieType == MovieType.popular ){
           this.popularMovies = res.results;
         }
-        if(movieType == "top_rated"){
+        if(movieType == MovieType.top_rated ){
           this.topRatedMovies = res.results;
         }
-        if(movieType == "upcoming"){
+        if(movieType == MovieType.upcoming){
           this.upcomingMovies = res.results;
         }        
       },
       (error) => {
         console.error(error);
-     });
-     
+     });     
   }
   
   getLinkTitle(movieType: string): string{
-    switch(movieType) { 
-      case "popular": {         
-        return "Popular";         
-      } 
-      case "top_rated": {
-         return "Top Rated";
-      } 
-      case "upcoming": {    
-        return "Upcoming";
-     } 
-      default: {          
-         return "";
-      } 
-   } 
+    return this.helper.getLinkTitle(movieType);
   }
 }

@@ -34,7 +34,7 @@
 .search-button{
   position: absolute;  
   margin-top: 10px;
-  margin-left: -90px;
+  margin-left: -60px;
   color: rgb(78, 77, 77);
 }
 
@@ -88,12 +88,21 @@
   font-size: 20px;
 }
 
-.filters{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
 .hidden{
   visibility: hidden;
+}
+
+.filters{
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.filters button{
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }

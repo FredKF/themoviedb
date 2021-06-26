@@ -9,9 +9,10 @@ import { MoviesExtendedComponent } from './components/movies-extended/movies-ext
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {MatIconModule} from '@angular/material/icon';
     ReactiveFormsModule,
     MatCheckboxModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatExpansionModule
   ],
   exports: [MovieItemComponent]
 })

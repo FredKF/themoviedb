@@ -3,6 +3,7 @@ import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TvShowsResult } from 'src/app/models/tv-show-response.interface';
 import { TvShowsService } from 'src/app/modules/tv-show/services/tv-shows.service';
+import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
   selector: 'app-tv-show-list',
@@ -23,7 +24,8 @@ export class TvShowListComponent implements OnInit {
   constructor(
     private tvShowsService: TvShowsService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private helper: HelperService
   ) {
     this.route.paramMap.subscribe(params => {
       if(params){
@@ -57,23 +59,7 @@ export class TvShowListComponent implements OnInit {
   }
 
   getMainTitle(tvShowType: string): string {
-    switch (tvShowType) {
-      case 'popular': {
-        return 'Popular';
-      }
-      case 'top_rated': {
-        return 'Top Rated';
-      }
-      case 'on_the_air': {
-        return 'On The Air';
-      }
-      case 'airing_today': {
-        return 'Airing Today';
-      }
-      default: {
-        return 'Tv Shows';
-      }
-    }
+    return this.helper.getTvShowsMainTitle(tvShowType);
   }
 
   getServerData(pageEvent: PageEvent, keyword: string): PageEvent {
