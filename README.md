@@ -1,6 +1,12 @@
 # TMDB
 
 This is a responsive web application that allow you to navigate and search among movies and tv shows.
+Technologies:
+
+Angular 11,
+Angular Material,
+CSS 3,
+HTML 5
 
 ## Development server
 Run `ng serve` for a local dev server. Navigate to http://localhost:4200. The app will automatically reload watching for any file changes
@@ -81,9 +87,16 @@ TV Shows - Endpoints
 ```
 
 ## Usage Interface
-
-
-
+Clickable
+<img src="src/assets/images/readme/readme1.png">
+Movies section (reused by Tv Shows)
+<img src="src/assets/images/readme/readme2.png">
+Search menu, write a keyword for movies and for tv shows
+<img src="src/assets/images/readme/readme3.png">
+Searchs results
+<img src="src/assets/images/readme/readme4.png">
+Movie and TV shows details, clicking on card
+<img src="src/assets/images/readme/readme5.png">
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
