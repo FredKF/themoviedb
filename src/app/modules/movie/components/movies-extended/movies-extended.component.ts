@@ -86,6 +86,7 @@ export class MoviesExtendedComponent implements OnInit {
     this.datasource.sort((movie, nextMovie) => movie.popularity < nextMovie.popularity ? 1 : -1);
     var sortedList = this.datasource.slice(0, 10);
     this.datasource = sortedList;
+    this.mainTitle = "Top 10";
   } 
 
   navigateToSearchComponent(){
