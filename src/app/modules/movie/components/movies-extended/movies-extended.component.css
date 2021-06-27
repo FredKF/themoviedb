@@ -20,6 +20,11 @@
     justify-content: center;
 }
 
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
 
 
 .side-container{
@@ -62,6 +67,7 @@
 .paginator {
   display: flex;
   justify-content: center !important;
+  font-size: 18px;
 }
 
 .nav-link:hover{
@@ -169,7 +175,6 @@
     margin: auto;
     justify-content: center;
   }
-
   .main-container{
     display: block;
   }

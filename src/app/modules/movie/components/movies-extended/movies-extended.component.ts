@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute } from '@angular/router';
 import { MoviesResponse } from 'src/app/models/movie-response.interface';
@@ -10,6 +10,7 @@ import { ViewChildren } from '@angular/core';
 import { QueryList } from '@angular/core';
 import { ElementRef } from '@angular/core';
 import { HelperService } from 'src/app/services/helper.service';
+import { MatExpansionPanel } from '@angular/material/expansion';
 
 @Component({
   selector: 'app-movies-extended',
@@ -18,6 +19,7 @@ import { HelperService } from 'src/app/services/helper.service';
 })
 export class MoviesExtendedComponent implements OnInit {
   @ViewChildren("checkboxes") checkboxes: QueryList<ElementRef>;
+  @ViewChild(MatExpansionPanel) expansion: MatExpansionPanel;
   pageEvent: PageEvent;
   datasource: MoviesResponse[];
   pageIndex: number;
@@ -32,6 +34,7 @@ export class MoviesExtendedComponent implements OnInit {
   genresNames: string[];
   genresIds: string[] = [];
   hidden: boolean = false;
+  expanded: boolean = false;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -50,7 +53,7 @@ export class MoviesExtendedComponent implements OnInit {
     this.populateGenders();
     this.route.params.subscribe(params => {
       this.movieType = params.movieType;
-    });
+    });    
 
     this.movieService.getMovies(this.movieType).subscribe(
       res => {
@@ -127,6 +130,7 @@ export class MoviesExtendedComponent implements OnInit {
       }
     )
     this.genresIds = [];
+    this.expansion.close();    
   }
 
   uncheckAll() {
