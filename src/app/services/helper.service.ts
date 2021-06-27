@@ -49,13 +49,13 @@ export class HelperService {
   } 
 
   getHeroImages(){
-    return ["../../../../assets/images/raiders.jpg",
-    "../../../../assets/images/mandalorian.jpg",
-    "../../../../assets/images/kong.jpg",
-    "../../../../assets/images/scarface.jpg",
-    "../../../../assets/images/starwars.jpg",
-    "../../../../assets/images/terminator.jpg",
-    "../../../../assets/images/backtothefuture.jpg"];
+    return ["assets/images/raiders.jpg",
+    "assets/images/mandalorian.jpg",
+    "assets/images/kong.jpg",
+    "assets/images/scarface.jpg",
+    "assets/images/starwars.jpg",
+    "assets/images/terminator.jpg",
+    "assets/images/backtothefuture.jpg"];
   }
 
 
