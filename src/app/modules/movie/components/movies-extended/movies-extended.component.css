@@ -9,8 +9,7 @@
 
 .content-wrapper{
   display: flex;
-  justify-content: center;
-  margin: auto;
+  justify-content: center;  
 }
 
 .container{
@@ -114,6 +113,18 @@
   justify-content: center;
 }
 
+ @media screen and (min-width: 1360px){
+  
+  .side-container{
+    width: 15%;
+    margin-left: 20%;
+    margin-right: 20px;
+  }
+
+  .content-wrapper{
+    margin-right: auto;
+  }
+ }
 
 @media screen and (max-width: 1200px) {
   .main-container{
