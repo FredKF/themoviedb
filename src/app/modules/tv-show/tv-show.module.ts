@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -17,12 +18,13 @@ import { MatButtonModule } from '@angular/material/button';
 
   ],
   imports: [
-    CommonModule,
     TvShowRoutingModule,
     MatIconModule,
     MatPaginatorModule,
     FormsModule,
-    MatButtonModule
+    MatButtonModule,
+    SharedModule,
+    CommonModule
   ],
   exports: [TvShowItemComponent]
 })
