@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute } from '@angular/router';
 import { SearchService } from 'src/app/services/search.service';
-import {Location} from '@angular/common';
-import { RootTvShow, TvShowsResult } from 'src/app/models/tv-show-response.interface';
-import { MovieRootObject, MoviesResponse } from 'src/app/models/movie-response.interface';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-search',
@@ -59,12 +57,12 @@ export class SearchComponent implements OnInit {
         this.searchService.getSearchResults(this.keyword,index.toString(), searchType).subscribe(
           response =>{
             this.cleanDataSource(response.results);
-            this.cleanDataSource(this.auxDataSource);            
+            this.cleanDataSource(this.auxDataSource);
             if (response.results[0].id == this.auxDataSource[0].id){//catch possible duplicated results
-              this.datasource = response.results;              
+              this.datasource = response.results;
             }else{
-              this.datasource = this.auxDataSource.concat(response.results);              
-            }            
+              this.datasource = this.auxDataSource.concat(response.results);
+            }
             this.pageIndex = this.currentIndex;
             this.length = response.total_results;
             this.pageSize= response.results.length;

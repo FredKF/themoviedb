@@ -16,6 +16,12 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { SharedModule } from '../shared/shared.module';
+import { SearchModule } from '../search/search.module';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+
+
+
 
 
 @NgModule({
@@ -26,6 +32,7 @@ import { SharedModule } from '../shared/shared.module';
     MoviesExtendedComponent
   ],
   imports: [
+    CommonModule,
     MovieRoutingModule,
     MatPaginatorModule,
     MatCardModule,
@@ -38,9 +45,9 @@ import { SharedModule } from '../shared/shared.module';
     MatSidenavModule,
     MatToolbarModule,
     MatMenuModule,
-    SharedModule,
-    CommonModule
-
+    MatFormFieldModule,
+    MatSelectModule,
+    SharedModule
   ],
   exports: [MovieItemComponent]
 })

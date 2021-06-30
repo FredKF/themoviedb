@@ -16,6 +16,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from './modules/shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,6 @@ import { CommonModule } from '@angular/common';
   imports: [
     BrowserAnimationsModule,
     HttpClientModule,
-    AppRoutingModule,
     MatPaginatorModule,
     MatCardModule,
     MatMenuModule,
@@ -33,10 +33,10 @@ import { CommonModule } from '@angular/common';
     ReactiveFormsModule,
     MatIconModule,
     MatButtonModule,
-    MovieModule,
-    TvShowModule,
     SharedModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatSidenavModule,
+    AppRoutingModule
   ],
 
   exports:[],
