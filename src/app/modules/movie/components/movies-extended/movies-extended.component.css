@@ -32,41 +32,11 @@
 }
 
 
-.side-container{
-  width: 20%;
-  margin-left: 30px;
-}
 
-.form-group{
-  margin-top: 20px;
-  padding: 5px;
-  margin-bottom: 15px;
-}
 
-.search-errors{
-  color: red;
-}
 
-.search-button{
-  position: absolute;
-  margin-top: 10px;
-  margin-left: -60px;
-  color: rgb(78, 77, 77);
-}
 
-.action-buttons{
-  display: flex;
-  justify-content: space-around;
-}
 
-.search-input{
-  width: 100%;
-  padding: 12px 10px;
-  margin: 8px 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
 
 
 .paginator {
@@ -118,25 +88,9 @@
   visibility: hidden;
 }
 
-.filters{
-  height: 200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-top: 20px;
-}
-
-.filters button{
-  display: flex;
-  width: 100%;
-  justify-content: center;
-}
-
 
 
  @media screen and (min-width: 1360px){
-
   .side-container{
     width: 15%;
     margin-left: 20%;
